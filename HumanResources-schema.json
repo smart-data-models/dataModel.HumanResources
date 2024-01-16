@@ -251,7 +251,7 @@
               "description": "Property. Link to the site of the Organization, Company, Institution, Administration, Project or Initiative related to my career"
             },
             "image": {
-              "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/image"
+              "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/image"
             },
             "location": {
               "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
