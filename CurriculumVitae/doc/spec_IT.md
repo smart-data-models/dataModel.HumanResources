@@ -7,16 +7,48 @@
 [documento generato automaticamente](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
+Descrizione globale: **Un Curriculum vitae in formato aperto**  
+versione: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## Elenco delle proprietà  
 
 <sup><sub>[*] Se non c'è un tipo in un attributo è perché potrebbe avere diversi tipi o diversi formati/modelli</sub></sup>.  
-<!-- /30-PropertiesList -->  
+- `aboutMe[object]`: Dati di una persona  	- `avatar[object]`: Link e descrizione alternativa al file con l'immagine, la miniatura o l'avatar    
+	- `birthday[date]`: Data di nascita della persona    
+	- `contact[object]`: Un modo per contattare una persona specifica    
+	- `description[string]`: Breve biografia del candidato    
+	- `location[*]`: Riferimento geojson all'elemento. Può essere un punto, una stringa di linea, un poligono, un multi-punto, una stringa di linea o un poligono multiplo.    
+	- `name[string]`: Nome del candidato    
+	- `surnames[string]`: Cognome o Cognomi della persona    
+	- `title[string]`: Ruolo, relazione o attività legata alla persona.    
+- `address[object]`: L'indirizzo postale  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: Il paese. Ad esempio, la Spagna  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
+	- `addressLocality[string]`: La località in cui si trova l'indirizzo civico e che si trova nella regione  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: La regione in cui si trova la località, e che si trova nel paese  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: Un distretto è un tipo di divisione amministrativa che, in alcuni Paesi, è gestita dal governo locale.    
+	- `postOfficeBoxNumber[string]`: Il numero di casella postale per gli indirizzi di casella postale. Ad esempio, 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `postalCode[string]`: Il codice postale. Ad esempio, 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
+	- `streetAddress[string]`: L'indirizzo stradale  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: Numero che identifica una proprietà specifica su una strada pubblica    
+- `alternateName[string]`: Un nome alternativo per questa voce  - `areaServed[string]`: L'area geografica in cui viene fornito il servizio o l'articolo offerto.  . Model: [https://schema.org/Text](https://schema.org/Text)- `careerPreferences`:   	- `contact[object]`: Un modo per contattare una persona specifica    
+	- `goals[array]`: Obiettivi personali e professionali in linea con le esigenze e i requisiti dell'azienda.    
+	- `preferences[object]`: Preferenze del candidato ad accettare il lavoro    
+	- `requirements`:     
+	- `status`:     
+- `currentSalary[object]`: Oggetto con la descrizione della punizione  	- `amount[integer]`: Importo monetario dello stipendio    
+	- `currency[string]`: Simbolo della valuta secondo ISO 4217    
+	- `relevantPerks`:     
+- `dataProvider[string]`: una sequenza di caratteri che identifica il fornitore dell'entità di dati armonizzati  - `dateCreated[date-time]`: Timestamp di creazione dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione  - `dateModified[date-time]`: Timestamp dell'ultima modifica dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione  - `description[string]`: Descrizione dell'articolo  - `experience[object]`: Voci che descrivono l'esperienza professionale  	- `jobs[array]`: Elenco delle aziende, istituzioni pubbliche, ONG o altre organizzazioni in cui lavorate o avete lavorato retribuiti.    
+	- `projects`:     
+	- `publicArtifacts`:     
+- `id[*]`: Identificatore univoco dell'entità  - `interestingFacts[array]`: Fatti che ti definiscono: il tuo IDE, i tuoi libri preferiti, la tua squadra di calcio...  - `knowledge`:   	- `languages`:     
+- `location[*]`: Riferimento geojson all'elemento. Può essere un punto, una stringa di linea, un poligono, un multi-punto, una stringa di linea o un poligono multiplo.  - `name[string]`: Il nome di questo elemento  - `noticePeriod[number]`: Periodo di preavviso per lasciare il lavoro  - `owner[array]`: Un elenco contenente una sequenza di caratteri codificata JSON che fa riferimento agli ID univoci dei proprietari.  - `recommendations[array]`: Contenuti che mi piacciono e che raccomando e che possono contribuire a definirmi come professionista.  - `relevantLinks[array]`: Link rilevanti della persona  - `relevantYearsOfExperience[number]`: Anni di esperienza rilevanti in relazione ai ruoli e agli obiettivi professionali desiderati.  - `seeAlso[*]`: elenco di uri che puntano a risorse aggiuntive sull'elemento  - `settings[object]`: Impostazioni del CV  	- `language[string]`: La lingua del CV espressa come [codice ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)    
+	- `lastUpdate[date]`: Ultima volta che il CV è stato aggiornato    
+- `significativeRelationships[array]`: Amici o colleghi con cui ho lavorato o meno, il cui rapporto con me può contribuire a definirmi come professionista.  - `source[string]`: Una sequenza di caratteri che indica la fonte originale dei dati dell'entità come URL. Si consiglia di utilizzare il nome di dominio completamente qualificato del provider di origine o l'URL dell'oggetto di origine.  - `type[string]`: Tipo di dati NGSI. Deve essere CurriculumVitae  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Proprietà richieste  
-- Nessuna proprietà richiesta  <!-- /35-RequiredProperties -->  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 La mappatura dalla posizione originale di http://github.com/manfred/mac/schema.json è stata sostituita dalla posizione nella maggior parte di SDM. Sono stati rimossi anche la maggior parte degli attributi richiesti e le restrizioni per consentire usi diversi del modello di dati. Indirizzi e località sono stati adattati a SDM (schema.org).  
 <!-- /40-NotesYaml -->  
