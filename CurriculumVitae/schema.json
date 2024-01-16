@@ -192,11 +192,11 @@
                         "format": "uri",
                         "description": "Property. Link to the site of the Organization, Company, Institution, Administration, Project or Initiative related to my career."
                       },
-                      "image": {
-                        "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/image"
-                      },
                       "address": {
                         "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/address"
+                      },
+                      "image": {
+                        "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/image"
                       }
                     }
                   },
