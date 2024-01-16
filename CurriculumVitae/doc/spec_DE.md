@@ -7,16 +7,48 @@
 [Dokument automatisch generiert](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
+Globale Beschreibung: **Ein offenes Lebenslaufformat**  
+Version: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## Liste der Eigenschaften  
 
 <sup><sub>[*] Wenn es für ein Attribut keinen Typ gibt, kann es mehrere Typen oder verschiedene Formate/Muster haben</sub></sup>.  
-<!-- /30-PropertiesList -->  
+- `aboutMe[object]`: A Personendaten  	- `avatar[object]`: Link und alternative Beschreibung zur Datei mit dem Bild, Thumbnail oder Avatar    
+	- `birthday[date]`: Geburtsdatum der Person    
+	- `contact[object]`: Eine Möglichkeit, eine bestimmte Person zu kontaktieren    
+	- `description[string]`: Kurzer Lebenslauf des Bewerbers    
+	- `location[*]`: Geojson-Referenz auf das Element. Es kann Punkt, LineString, Polygon, MultiPoint, MultiLineString oder MultiPolygon sein    
+	- `name[string]`: Name des Bewerbers    
+	- `surnames[string]`: Nachname o Nachnamen der Person    
+	- `title[string]`: Rolle, Beziehung oder Tätigkeit im Zusammenhang mit der Person.    
+- `address[object]`: Die Postanschrift  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: Das Land. Zum Beispiel, Spanien  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
+	- `addressLocality[string]`: Die Ortschaft, in der sich die Adresse befindet, und die in der Region liegt  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: Die Region, in der sich der Ort befindet, und die auf dem Land liegt  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: Ein Bezirk ist eine Art von Verwaltungseinheit, die in einigen Ländern von der lokalen Regierung verwaltet wird.    
+	- `postOfficeBoxNumber[string]`: Die Postfachnummer für Postfachadressen. Zum Beispiel, 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `postalCode[string]`: Die Postleitzahl. Zum Beispiel, 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
+	- `streetAddress[string]`: Die Straßenanschrift  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: Nummer zur Identifizierung eines bestimmten Grundstücks an einer öffentlichen Straße    
+- `alternateName[string]`: Ein alternativer Name für diesen Artikel  - `areaServed[string]`: Das geografische Gebiet, in dem eine Dienstleistung oder ein angebotener Artikel erbracht wird  . Model: [https://schema.org/Text](https://schema.org/Text)- `careerPreferences`:   	- `contact[object]`: Eine Möglichkeit, eine bestimmte Person zu kontaktieren    
+	- `goals[array]`: Persönliche und berufliche Ziele, die mit den Bedürfnissen und Anforderungen des Unternehmens übereinstimmen.    
+	- `preferences[object]`: Präferenzen des Bewerbers für die Annahme der Arbeit    
+	- `requirements`:     
+	- `status`:     
+- `currentSalary[object]`: Objekt mit der Beschreibung der Vergeltung  	- `amount[integer]`: Monetärer Gehaltsbetrag    
+	- `currency[string]`: Symbol der Währung nach ISO 4217    
+	- `relevantPerks`:     
+- `dataProvider[string]`: Eine Folge von Zeichen zur Identifizierung des Anbieters der harmonisierten Dateneinheit  - `dateCreated[date-time]`: Zeitstempel der Entitätserstellung. Dieser wird normalerweise von der Speicherplattform zugewiesen  - `dateModified[date-time]`: Zeitstempel der letzten Änderung der Entität. Dieser wird in der Regel von der Speicherplattform vergeben  - `description[string]`: Eine Beschreibung dieses Artikels  - `experience[object]`: Items zur Beschreibung der Berufserfahrung  	- `jobs[array]`: Liste der Unternehmen, öffentlichen Einrichtungen, NRO oder anderen Organisationen, in denen Sie arbeiten oder gearbeitet haben.    
+	- `projects`:     
+	- `publicArtifacts`:     
+- `id[*]`: Eindeutiger Bezeichner der Entität  - `interestingFacts[array]`: Fakten, die dich ausmachen: dein IDE, deine Lieblingsbücher, deine Fußballmannschaft...  - `knowledge`:   	- `languages`:     
+- `location[*]`: Geojson-Referenz auf das Element. Es kann Punkt, LineString, Polygon, MultiPoint, MultiLineString oder MultiPolygon sein  - `name[string]`: Der Name dieses Artikels  - `noticePeriod[number]`: Kündigungsfrist für das Ausscheiden aus dem Arbeitsverhältnis  - `owner[array]`: Eine Liste mit einer JSON-kodierten Zeichenfolge, die auf die eindeutigen Kennungen der Eigentümer verweist  - `recommendations[array]`: Inhalte, die mir gefallen und die ich empfehlen kann und die dazu beitragen können, mich als Fachmann zu definieren.  - `relevantLinks[array]`: Einschlägige Links der Person  - `relevantYearsOfExperience[number]`: Einschlägige Jahre an Erfahrung in Verbindung mit den gewünschten beruflichen Aufgaben und Zielen.  - `seeAlso[*]`: Liste von URLs, die auf zusätzliche Ressourcen zu dem Artikel verweisen  - `settings[object]`: CV-Einstellungen  	- `language[string]`: Die Sprache des Lebenslaufs, ausgedrückt als [ISO 639-1-Code] (https://en.wikipedia.org/wiki/ISO_639-1)    
+	- `lastUpdate[date]`: Letztes Mal, als der Lebenslauf aktualisiert wurde    
+- `significativeRelationships[array]`: Freunde oder Kollegen, mit denen ich zusammengearbeitet habe oder nicht, deren Beziehung zu mir dazu beitragen kann, mich als Fachmann zu definieren.  - `source[string]`: Eine Folge von Zeichen, die die ursprüngliche Quelle der Entitätsdaten als URL angibt. Empfohlen wird der voll qualifizierte Domänenname des Quellanbieters oder die URL des Quellobjekts.  - `type[string]`: NGSI Datentyp. Es muss CurriculumVitae sein  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 Erforderliche Eigenschaften  
-- Keine erforderlichen Eigenschaften  <!-- /35-RequiredProperties -->  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 Der ursprüngliche Speicherort http://github.com/manfred/mac/schema.json wurde durch den Speicherort im größten Teil des SDM ersetzt. Außerdem wurden die meisten der erforderlichen Attribute und Einschränkungen entfernt, um verschiedene Verwendungen des Datenmodells zu ermöglichen. Adressen und Orte wurden an das SDM (schema.org) angepasst.  
 <!-- /40-NotesYaml -->  
@@ -6017,7 +6049,7 @@ CurriculumVitae:
 ```  
 </details>  
 #### CurriculumVitae NGSI-LD Schlüsselwerte Beispiel  
-Hier ist ein Beispiel für einen CurriculumVitae im JSON-LD Format als Key-Values. Dies ist kompatibel mit NGSI-LD, wenn `options=keyValues` verwendet wird und liefert die Kontextdaten einer einzelnen Entität.  
+Hier ist ein Beispiel für einen CurriculumVitae im JSON-LD Format als Key-Values. Dies ist mit NGSI-LD kompatibel, wenn `options=keyValues` verwendet wird und liefert die Kontextdaten einer einzelnen Entität.  
 <details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
