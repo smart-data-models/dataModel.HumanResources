@@ -1,0 +1,3 @@
+/* (Beta) Export of data model CurriculumVitae of the subject dataModel.HumanResources for a PostgreSQL database. Pending translation of enumerations and multityped attributes */
+CREATE TYPE CurriculumVitae_type AS ENUM ('CurriculumVitae');
+CREATE TABLE CurriculumVitae (aboutMe JSON, address JSON, alternateName TEXT, areaServed TEXT, careerPreferences JSON, currentSalary JSON, dataProvider TEXT, dateCreated TIMESTAMP, dateModified TIMESTAMP, description TEXT, experience JSON, id TEXT PRIMARY KEY, interestingFacts JSON, knowledge JSON, location JSON, name TEXT, noticePeriod NUMERIC, owner JSON, recommendations JSON, relevantLinks JSON, relevantYearsOfExperience NUMERIC, seeAlso JSON, settings JSON, significativeRelationships JSON, source TEXT, type CurriculumVitae_type);
