@@ -7,16 +7,48 @@
 [文書は自動的に生成される](https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.gb715ace035_0_60)  
 <!-- /15-License -->  
 <!-- 20-Description -->  
+グローバルな記述**オープンな職務経歴書フォーマット**  
+バージョン: 0.0.1  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
 ## プロパティのリスト  
 
 <sup><sub>[*] 属性に型がない場合は、複数の型があるか、異なるフォーマット/パターンがある可能性があるためです</sub></sup>。  
-<!-- /30-PropertiesList -->  
+- `aboutMe[object]`: 人物データ  	- `avatar[object]`: 画像、サムネイル、またはアバターを含むファイルへのリンクと代替説明文    
+	- `birthday[date]`: 生年月日    
+	- `contact[object]`: 特定の人と連絡を取る方法    
+	- `description[string]`: 候補者の略歴    
+	- `location[*]`: アイテムへの Geojson 参照。Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon のいずれか。    
+	- `name[string]`: 候補者氏名    
+	- `surnames[string]`: 姓 o 氏名    
+	- `title[string]`: その人に関連する役割、関係、活動。    
+- `address[object]`: 郵送先住所  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: 国。例えば、スペイン  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
+	- `addressLocality[string]`: 番地がある地域と、その地域に含まれる地域  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
+	- `addressRegion[string]`: その地域がある地域、またその国がある地域  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
+	- `district[string]`: 地区とは行政区画の一種で、国によっては地方自治体によって管理されている。    
+	- `postOfficeBoxNumber[string]`: 私書箱の住所のための私書箱番号。例：03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
+	- `postalCode[string]`: 郵便番号。例：24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
+	- `streetAddress[string]`: 番地  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
+	- `streetNr[string]`: 公道上の特定の物件を特定する番号    
+- `alternateName[string]`: この項目の別名  - `areaServed[string]`: サービスまたは提供品が提供される地理的地域  . Model: [https://schema.org/Text](https://schema.org/Text)- `careerPreferences`:   	- `contact[object]`: 特定の人と連絡を取る方法    
+	- `goals[array]`: 会社のニーズや要件に合致した個人的・職業的目標。    
+	- `preferences[object]`: 仕事を引き受ける候補者の希望    
+	- `requirements`:     
+	- `status`:     
+- `currentSalary[object]`: 報復の記述のあるオブジェクト  	- `amount[integer]`: 給与額    
+	- `currency[string]`: ISO 4217による通貨記号    
+	- `relevantPerks`:     
+- `dataProvider[string]`: ハーモナイズされたデータ・エンティティの提供者を識別する一連の文字。  - `dateCreated[date-time]`: エンティティの作成タイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられます。  - `dateModified[date-time]`: エンティティの最終変更のタイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられる。  - `description[string]`: この商品の説明  - `experience[object]`: 職業経験に関する項目  	- `jobs[array]`: あなたが給与を得るために働いている、または働いたことのある企業、公的機関、NGO、その他の組織のリスト    
+	- `projects`:     
+	- `publicArtifacts`:     
+- `id[*]`: エンティティの一意識別子  - `interestingFacts[array]`: IDE、好きな本、サッカーチーム...。  - `knowledge`:   	- `languages`:     
+- `location[*]`: アイテムへの Geojson 参照。Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon のいずれか。  - `name[string]`: このアイテムの名前  - `noticePeriod[number]`: 退職予告期間  - `owner[array]`: 所有者の固有IDを参照するJSONエンコードされた文字列を含むリスト。  - `recommendations[array]`: プロフェッショナルとしての私を定義するのに役立つ、私が好きで推薦するコンテンツ。  - `relevantLinks[array]`: 本人の関連リンク  - `relevantYearsOfExperience[number]`: 希望する職業上の役割や目標に関連する経験年数。  - `seeAlso[*]`: アイテムに関する追加リソースを指すURIのリスト  - `settings[object]`: CV設定  	- `language[string]`: ISO639-1コード](https://en.wikipedia.org/wiki/ISO_639-1)で表されるCVの言語。    
+	- `lastUpdate[date]`: 履歴書の最終更新日    
+- `significativeRelationships[array]`: 一緒に仕事をしたことがあるかないかにかかわらず、私との関係が私をプロフェッショナルとして定義するのに役立つ友人や同僚。  - `source[string]`: エンティティ・データの元のソースを URL として示す一連の文字。ソース・プロバイダの完全修飾ドメイン名、またはソース・オブジェクトの URL を推奨する。  - `type[string]`: NGSIデータ型。CurriculumVitaeでなければならない。  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
 必須プロパティ  
-- 必須プロパティなし  <!-- /35-RequiredProperties -->  
+- `id`  - `type`  <!-- /35-RequiredProperties -->  
 <!-- 40-NotesYaml -->  
 オリジナルの http://github.com/manfred/mac/schema.json の位置からマップされた位置は、SDM のほとんどの位置で置き換えられた。また、データモデルのさまざまな使用を可能にするために、必要な属性と制限のほとんどを削除した。住所と所在地はSDM（schema.org）に適合させた。  
 <!-- /40-NotesYaml -->  
