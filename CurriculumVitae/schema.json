@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.Consumption/ConsumptionCost/schema.json",
-  "title": "Smart Data Models - Manfred Awesomic Curriculum vitae",
+  "$id": "https://smart-data-models.github.io/dataModel.HumanResources/CurriculumVitae/schema.json",
+  "title": "Smart Data Models - Manfred Awesomic Curriculum vitae adapted to Smart Data Models",
   "description": "An open Curriculum vitae format",
   "modelTags": "Manfred",
   "derivedFrom": "https://github.com/getmanfred/mac/blob/master/schema/schema.json",
@@ -39,7 +39,7 @@
           }
         },
         "aboutMe": {
-          "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/person"
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/person"
         },
         "relevantYearsOfExperience": {
           "type": "number",
@@ -80,7 +80,7 @@
           "type": "array",
           "description": "Property. Friends or colleagues with whom I have worked or not, whose relationship with me can help define me as a professional.",
           "items": {
-            "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/person"
+            "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/person"
           }
         },
         "interestingFacts": {
@@ -154,7 +154,7 @@
                 "type": "array",
                 "description": "Property. A list of authors of the recommended content",
                 "items": {
-                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/person"
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/person"
                 }
               }
             }
@@ -193,7 +193,7 @@
                         "description": "Property. Link to the site of the Organization, Company, Institution, Administration, Project or Initiative related to my career."
                       },
                       "image": {
-                        "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/image"
+                        "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/image"
                       },
                       "address": {
                         "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/address"
@@ -201,13 +201,13 @@
                     }
                   },
                   "type": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/organizationType"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/organizationType"
                   },
                   "roles": {
                     "type": "array",
                     "description": "Property. role played on the entity / organization",
                     "items": {
-                      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/role"
+                      "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/role"
                     }
                   }
                 }
@@ -219,15 +219,15 @@
                 "type": "object",
                 "properties": {
                   "details": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/publicEntityDetails"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/publicEntityDetails"
                   },
                   "type": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/projectType"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/projectType"
                   },
                   "roles": {
                     "type": "array",
                     "items": {
-                      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/role"
+                      "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/role"
                     }
                   }
                 }
@@ -239,10 +239,10 @@
                 "type": "object",
                 "properties": {
                   "details": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/publicEntityDetails"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/publicEntityDetails"
                   },
                   "type": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/publicArtifactType"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/publicArtifactType"
                   },
                   "publishingDate": {
                     "type": "string",
@@ -251,11 +251,11 @@
                   "relatedCompetences": {
                     "type": "array",
                     "items": {
-                      "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
+                      "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
                     }
                   },
                   "tags": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/tags"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/tags"
                   }
                 }
               }
@@ -299,7 +299,7 @@
               "type": "object",
               "properties": {
                 "skill": {
-                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
                 },
                 "level": {
                   "type": "string",
@@ -320,7 +320,7 @@
               "type": "object",
               "properties": {
                 "skill": {
-                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
                 },
                 "level": {
                   "type": "string",
@@ -340,7 +340,7 @@
               "type": "object",
               "properties": {
                 "studyType": {
-                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/studyType"
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/studyType"
                 },
                 "degreeAchieved": {
                   "type": "boolean",
@@ -365,12 +365,12 @@
                   "format": "date"
                 },
                 "institution": {
-                  "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/publicEntityDetails"
+                  "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/publicEntityDetails"
                 },
                 "linkedCompetences": {
                   "type": "array",
                   "items": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
                   }
                 }
               }
@@ -381,7 +381,7 @@
           "type": "object",
           "properties": {
             "contact": {
-              "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/contactMean"
+              "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/contactMean"
             },
             "status": {
               "type": "string",
@@ -477,7 +477,7 @@
                   "type": "array",
                   "description": "Property. Type of contract with the entity / organization",
                   "items": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/contractType"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/contractType"
                   }
                 },
                 "situation": {
@@ -542,28 +542,28 @@
                   "type": "array",
                   "description": "Property. Skills, tools, domains or methodologies I like to work with",
                   "items": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
                   }
                 },
                 "discardedCompetences": {
                   "type": "array",
                   "description": "Property. Skills, tools, domains or methodologies I don't like to work with",
                   "items": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/competence"
                   }
                 },
                 "preferredOrganizations": {
                   "type": "array",
                   "description": "Property. Type of organizations where I want to work",
                   "items": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/organizationType"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/organizationType"
                   }
                 },
                 "discardedOrganizations": {
                   "type": "array",
                   "description": "Property. Type of organizations where I don't want to work",
                   "items": {
-                    "$ref": "https://raw.githubusercontent.com/smart-data-models/incubated/master/CROSSSECTOR/HumanResources/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/organizationType"
+                    "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/organizationType"
                   }
                 },
                 "preferredRoles": {
