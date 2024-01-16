@@ -1,10 +1,35 @@
 description: This is a compilation list of all CONTRIBUTORS across different objects (data models) alphabetically ordered.
 contributors:
 -
- name:
- surname:
+ name: David
+ surname: Bonilla
+ mail: david@bonillaware.com
+ organization:
+ project:
+ comments: Original version of CurriculumVitae data model
+ year: 2024
+-
+ name: Rebeca
+ surname: Mendez
  mail:
  organization:
  project:
- comments:
- year:
+ comments: Original version of CurriculumVitae data model
+ year: 2024
+-
+ name: Sergio
+ surname: Regueira
+ mail:
+ organization:
+ project:
+ comments: Original version of CurriculumVitae data model
+ year: 2024
+-
+ name: Oscar
+ surname: Sanchez
+ mail:
+ organization: getmanfred
+ project:
+ comments: Original version of CurriculumVitae data model
+ year: 2024
+
