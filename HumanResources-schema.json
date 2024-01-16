@@ -133,10 +133,10 @@
             },
             "encoding": {
               "type": "string",
+              "description": "Property. The constant value base64 for encoding the images",
               "enum": [
                 "base64"
-              ],
-              "description": "Property. The constant value base64 for encoding the images"
+              ]
             }
           }
         },
