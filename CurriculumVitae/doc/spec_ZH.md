@@ -42,8 +42,8 @@
 - `dataProvider[string]`: 标识统一数据实体提供者的字符序列  - `dateCreated[date-time]`: 实体创建时间戳。通常由存储平台分配  - `dateModified[date-time]`: 实体最后一次修改的时间戳。通常由存储平台分配  - `description[string]`: 项目描述  - `experience[object]`: 描述专业经历的项目  	- `jobs[array]`: 您在其中工作或曾在其中领薪的公司、公共机构、非政府组织或其他组织的清单。    
 	- `projects`:     
 	- `publicArtifacts`:     
-- `id[*]`: 实体的唯一标识符  - `interestingFacts[array]`: 决定你身份的事实：你的 IDE、你最喜欢的书、你的足球队......  - `knowledge`:   	- `languages`:     
-- `location[*]`: 项目的 Geojson 引用。它可以是点、线条字符串、多边形、多点、多线条字符串或多多边形  - `name[string]`: 该项目的名称  - `noticePeriod[number]`: 离职通知期  - `owner[array]`: 包含一个 JSON 编码字符序列的列表，其中引用了所有者的唯一标识  - `recommendations[array]`: 我喜欢并推荐的内容可以帮助我成为一名专业人士。  - `relevantLinks[array]`: 个人的相关链接  - `relevantYearsOfExperience[number]`: 与期望的专业角色和目标相关的多年工作经验。  - `seeAlso[*]`: 指向有关该项目的其他资源的 uri 列表  - `settings[object]`: CV 设置  	- `language[string]`: 以[ISO 639-1 代码]表示的简历语言(https://en.wikipedia.org/wiki/ISO_639-1)    
+- `id[*]`: 实体的唯一标识符  - `interestingFacts[array]`: 决定你身份的事实：你的 IDE、你最喜欢的书、你的足球队...  - `knowledge`:   	- `languages`:     
+- `location[*]`: 项目的 Geojson 引用。它可以是点、线条字符串、多边形、多点、多线条字符串或多多边形  - `name[string]`: 该项目的名称  - `noticePeriod[number]`: 离职通知期  - `owner[array]`: 包含一个 JSON 编码字符序列的列表，其中引用了所有者的唯一 Ids  - `recommendations[array]`: 我喜欢并推荐的内容可以帮助我成为一名专业人士。  - `relevantLinks[array]`: 个人的相关链接  - `relevantYearsOfExperience[number]`: 与期望的专业角色和目标相关的多年工作经验。  - `seeAlso[*]`: 指向有关该项目的其他资源的 uri 列表  - `settings[object]`: CV 设置  	- `language[string]`: 以[ISO 639-1 代码]表示的简历语言(https://en.wikipedia.org/wiki/ISO_639-1)    
 	- `lastUpdate[date]`: 简历上次更新时间    
 - `significativeRelationships[array]`: 与我共事过或未共事过的朋友或同事，他们与我的关系有助于将我定义为一名专业人士。  - `source[string]`: 以 URL 形式给出实体数据原始来源的字符串。建议使用源提供者的完全合格域名或源对象的 URL  - `type[string]`: NGSI 数据类型。必须是 CurriculumVitae  <!-- /30-PropertiesList -->  
 <!-- 35-RequiredProperties -->  
