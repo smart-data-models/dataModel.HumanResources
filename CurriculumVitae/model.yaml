@@ -1,0 +1,3364 @@
+CurriculumVitae:
+  description: An open Curriculum vitae format
+  properties:
+    aboutMe:
+      description: A Person data
+      properties:
+        avatar:
+          description: 'Link adn alternative description to the file wth the picture, thumbnail or avatar'
+          properties:
+            alt:
+              description: Alternative description of the image
+              type: string
+            data:
+              description: The raw data of the image
+              type: string
+              x-ngsi:
+                type: Property
+            encoding:
+              description: The constant value base64 for encoding the images
+              enum:
+                - base64
+              type: string
+              x-ngsi:
+                type: Property
+            link:
+              description: 'Link to the stored image '
+              format: uri
+              type: string
+              x-ngsi:
+                type: Property
+            mediaType:
+              description: the media type of the image
+              enum:
+                - image/png
+                - image/jpeg
+              type: string
+              x-ngsi:
+                type: Property
+          type: object
+          x-ngsi:
+            type: Property
+        birthday:
+          description: Person's birth date
+          format: date
+          type: string
+        contact:
+          anyOf:
+            - publicProfiles:
+                description: Online services that provide a way to contact a person without exposing mail or phone number.
+                items:
+                  properties:
+                    URL:
+                      description: Link to the candidate's profiles
+                      format: uri
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    type:
+                      description: Public profiles in social networks or equivalent resources
+                      enum:
+                        - github
+                        - linkedin
+                        - manfred
+                        - other
+                        - stackoverflow
+                        - twitter
+                        - xing
+                        - website
+                      type: string
+                      x-ngsi:
+                        type: Property
+                  type: object
+                type: array
+                x-ngsi:
+                  type: Property
+            - phoneNumbers:
+                description: Phone numbers to contact the candidate
+                items:
+                  properties:
+                    countryCode:
+                      description: Country calling code as defined in International Telecommunication Union (ITU) standards E.123 and E.164.
+                      type: number
+                      x-ngsi:
+                        type: Property
+                    number:
+                      description: Phone number without the country prefix
+                      type: string
+                      x-ngsi:
+                        type: Property
+                  type: object
+                type: array
+                x-ngsi:
+                  type: Property
+            - contactMails:
+                description: Contact emails of the candidate
+                items:
+                  description: Every contact email of the candidate
+                  format: email
+                  type: string
+                  x-ngsi:
+                    type: Property
+                type: array
+                x-ngsi:
+                  type: Property
+          description: A way to contact a specific person
+          type: object
+          x-ngsi:
+            type: Property
+        description:
+          description: Brief bio of the candidate
+          type: string
+          x-ngsi:
+            type: Property
+        location:
+          description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+          oneOf:
+            - bbox:
+                items:
+                  type: number
+                minItems: 4
+                type: array
+              coordinates:
+                items:
+                  type: number
+                minItems: 2
+                type: array
+              type:
+                enum:
+                  - Point
+                type: string
+            - bbox:
+                items:
+                  type: number
+                minItems: 4
+                type: array
+              coordinates:
+                items:
+                  items:
+                    type: number
+                  minItems: 2
+                  type: array
+                minItems: 2
+                type: array
+              type:
+                enum:
+                  - LineString
+                type: string
+            - bbox:
+                items:
+                  type: number
+                minItems: 4
+                type: array
+              coordinates:
+                items:
+                  items:
+                    items:
+                      type: number
+                    minItems: 2
+                    type: array
+                  minItems: 4
+                  type: array
+                type: array
+              type:
+                enum:
+                  - Polygon
+                type: string
+            - bbox:
+                items:
+                  type: number
+                minItems: 4
+                type: array
+              coordinates:
+                items:
+                  items:
+                    type: number
+                  minItems: 2
+                  type: array
+                type: array
+              type:
+                enum:
+                  - MultiPoint
+                type: string
+            - bbox:
+                items:
+                  type: number
+                minItems: 4
+                type: array
+              coordinates:
+                items:
+                  items:
+                    items:
+                      type: number
+                    minItems: 2
+                    type: array
+                  minItems: 2
+                  type: array
+                type: array
+              type:
+                enum:
+                  - MultiLineString
+                type: string
+            - bbox:
+                items:
+                  type: number
+                minItems: 4
+                type: array
+              coordinates:
+                items:
+                  items:
+                    items:
+                      items:
+                        type: number
+                      minItems: 2
+                      type: array
+                    minItems: 4
+                    type: array
+                  type: array
+                type: array
+              type:
+                enum:
+                  - MultiPolygon
+                type: string
+          x-ngsi:
+            type: GeoProperty
+        name:
+          description: Name of the candidate
+          type: string
+          x-ngsi:
+            type: Property
+        surnames:
+          description: Surname o Surnames of the person
+          type: string
+        title:
+          description: 'Role, relationship or activity related to the person.'
+          type: string
+      type: object
+    address:
+      description: The mailing address
+      properties:
+        addressCountry:
+          description: 'The country. For example, Spain'
+          type: string
+          x-ngsi:
+            model: https://schema.org/addressCountry
+            type: Property
+        addressLocality:
+          description: 'The locality in which the street address is, and which is in the region'
+          type: string
+          x-ngsi:
+            model: https://schema.org/addressLocality
+            type: Property
+        addressRegion:
+          description: 'The region in which the locality is, and which is in the country'
+          type: string
+          x-ngsi:
+            model: https://schema.org/addressRegion
+            type: Property
+        district:
+          description: 'A district is a type of administrative division that, in some countries, is managed by the local government'
+          type: string
+          x-ngsi:
+            type: Property
+        postOfficeBoxNumber:
+          description: 'The post office box number for PO box addresses. For example, 03578'
+          type: string
+          x-ngsi:
+            model: https://schema.org/postOfficeBoxNumber
+            type: Property
+        postalCode:
+          description: 'The postal code. For example, 24004'
+          type: string
+          x-ngsi:
+            model: https://schema.org/https://schema.org/postalCode
+            type: Property
+        streetAddress:
+          description: The street address
+          type: string
+          x-ngsi:
+            model: https://schema.org/streetAddress
+            type: Property
+        streetNr:
+          description: Number identifying a specific property on a public street
+          type: string
+          x-ngsi:
+            type: Property
+      type: object
+      x-ngsi:
+        model: https://schema.org/address
+        type: Property
+    alternateName:
+      description: An alternative name for this item
+      type: string
+      x-ngsi:
+        type: Property
+    areaServed:
+      description: The geographic area where a service or offered item is provided
+      type: string
+      x-ngsi:
+        model: https://schema.org/Text
+        type: Property
+    careerPreferences:
+      properties:
+        contact:
+          anyOf:
+            - publicProfiles:
+                description: Online services that provide a way to contact a person without exposing mail or phone number.
+                items:
+                  properties:
+                    URL:
+                      description: Link to the candidate's profiles
+                      format: uri
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    type:
+                      description: Public profiles in social networks or equivalent resources
+                      enum:
+                        - github
+                        - linkedin
+                        - manfred
+                        - other
+                        - stackoverflow
+                        - twitter
+                        - xing
+                        - website
+                      type: string
+                      x-ngsi:
+                        type: Property
+                  type: object
+                type: array
+                x-ngsi:
+                  type: Property
+            - phoneNumbers:
+                description: Phone numbers to contact the candidate
+                items:
+                  properties:
+                    countryCode:
+                      description: Country calling code as defined in International Telecommunication Union (ITU) standards E.123 and E.164.
+                      type: number
+                      x-ngsi:
+                        type: Property
+                    number:
+                      description: Phone number without the country prefix
+                      type: string
+                      x-ngsi:
+                        type: Property
+                  type: object
+                type: array
+                x-ngsi:
+                  type: Property
+            - contactMails:
+                description: Contact emails of the candidate
+                items:
+                  description: Every contact email of the candidate
+                  format: email
+                  type: string
+                  x-ngsi:
+                    type: Property
+                type: array
+                x-ngsi:
+                  type: Property
+          description: A way to contact a specific person
+          type: object
+          x-ngsi:
+            type: Property
+        goals:
+          description: Personal and Professional goals to match with company needs and requirements.
+          items:
+            description: Every Personal and Professional goals to match with company needs and requirements
+            properties:
+              description:
+                description: 'Long description of the goals like Learn German, Become Team Leader, Work in a Silicon Valley Company '
+                type: string
+                x-ngsi:
+                  type: Property
+              title:
+                description: 'Short description of the goals like Learn German, Become Team Leader, Work in a Silicon Valley Company'
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+          type: array
+          x-ngsi:
+            type: Property
+        preferences:
+          description: Preferences of the Candidate to accept the work
+          properties:
+            discardedCompetences:
+              description: 'Skills, tools, domains or methodologies I don''t like to work with'
+              items:
+                description: 'Any competence used to complete professional tasks (tools proficiency as ''Excel'', technologies mastered as ''JAVA'', practices learned as ''TDD'', hardware you know how to handle as vehicles or construction tools, and know-how domains as ''banking'' or ''russia'')'
+                properties:
+                  description:
+                    description: Description of the competence
+                    type: string
+                    x-ngsi:
+                      type: Property
+                  name:
+                    description: Name of the competence
+                    type: string
+                    x-ngsi:
+                      type: Property
+                  type:
+                    description: type of the competence
+                    enum:
+                      - domain
+                      - hardware
+                      - practice
+                      - technology
+                      - tool
+                    type: string
+                    x-ngsi:
+                      type: Property
+                type: object
+              type: array
+              x-ngsi:
+                type: Property
+            discardedOrganizations:
+              description: Type of organizations where I don't want to work
+              items:
+                description: Types of Organization
+                enum:
+                  - academicalInstitution
+                  - bigCorp
+                  - freelance
+                  - NGO
+                  - other
+                  - publicAdministration
+                  - SME
+                  - startup
+                type: string
+                x-ngsi:
+                  type: Property
+              type: array
+              x-ngsi:
+                type: Property
+            discardedRoles:
+              description: Type of roles I don't like to adopt
+              items:
+                description: 'Preferred roles like Project Manager, CIO, etc'
+                type: string
+                x-ngsi:
+                  type: Property
+              type: array
+              x-ngsi:
+                type: Property
+            preferredCompetences:
+              description: 'Skills, tools, domains or methodologies I like to work with'
+              items:
+                description: 'Any competence used to complete professional tasks (tools proficiency as ''Excel'', technologies mastered as ''JAVA'', practices learned as ''TDD'', hardware you know how to handle as vehicles or construction tools, and know-how domains as ''banking'' or ''russia'')'
+                properties:
+                  description:
+                    description: Description of the competence
+                    type: string
+                    x-ngsi:
+                      type: Property
+                  name:
+                    description: Name of the competence
+                    type: string
+                    x-ngsi:
+                      type: Property
+                  type:
+                    description: type of the competence
+                    enum:
+                      - domain
+                      - hardware
+                      - practice
+                      - technology
+                      - tool
+                    type: string
+                    x-ngsi:
+                      type: Property
+                type: object
+              type: array
+              x-ngsi:
+                type: Property
+            preferredOrganizations:
+              description: Type of organizations where I want to work
+              items:
+                description: Types of Organization
+                enum:
+                  - academicalInstitution
+                  - bigCorp
+                  - freelance
+                  - NGO
+                  - other
+                  - publicAdministration
+                  - SME
+                  - startup
+                type: string
+                x-ngsi:
+                  type: Property
+              type: array
+              x-ngsi:
+                type: Property
+            preferredRoles:
+              description: 'Preferred roles like ''Product Manager'', ''Chef'', ''Teacher'''
+              items:
+                description: Every role description
+                type: string
+                x-ngsi:
+                  type: Property
+              type: array
+              x-ngsi:
+                type: Property
+          type: object
+          x-ngsi:
+            type: Property
+        requirements:
+          properties:
+            compensation:
+              properties:
+                equity:
+                  properties:
+                    comments:
+                      description: Comments about the equity percentage
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    from:
+                      description: Minimum percentage of equity
+                      type: number
+                      x-ngsi:
+                        type: Property
+                    mustHave:
+                      description: If equity is a must have to accept a new position
+                      type: boolean
+                      x-ngsi:
+                        type: Property
+                    upto:
+                      description: Maximum percentage of equity
+                      type: number
+                      x-ngsi:
+                        type: Property
+                  type: object
+                perks:
+                  allOf:
+                    - mustHave:
+                        description: Perks a new position must have to be considered
+                        items:
+                          description: Mandatory requirements
+                          type: string
+                          x-ngsi:
+                            type: Property
+                        type: array
+                        x-ngsi:
+                          type: Property
+                    - niceToHave:
+                        description: Perks a new position should have to be considered
+                        items:
+                          description: Items in retribution nice to have
+                          type: string
+                          x-ngsi:
+                            type: Property
+                        type: array
+                        x-ngsi:
+                          type: Property
+                  description: Other non-monetary retribution
+                  type: object
+                  x-ngsi:
+                    type: Property
+                salary:
+                  properties:
+                    comments:
+                      description: Other comments on the salary
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    currency:
+                      description: in ISO 4217 currency format
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    from:
+                      description: Minimum salary accepted by the candidate
+                      type: number
+                      x-ngsi:
+                        type: Property
+                    upto:
+                      description: Maximum salary accepted by the candidate
+                      type: number
+                      x-ngsi:
+                        type: Property
+                  type: object
+              type: object
+            contractTypes:
+              description: Type of contract with the entity / organization
+              items:
+                description: Types of Contracts
+                enum:
+                  - freelance
+                  - internship
+                  - permanent
+                  - temporary
+                type: string
+                x-ngsi:
+                  type: Property
+              type: array
+              x-ngsi:
+                type: Property
+            situation:
+              description: Details about working location
+              properties:
+                comments:
+                  description: Other conditions or comments about the candidate
+                  type: string
+                  x-ngsi:
+                    type: Property
+                openToRelocate:
+                  description: 'Candidate accepts relocation '
+                  type: boolean
+                  x-ngsi:
+                    type: Property
+                openToRemote:
+                  description: 'Candidate accepts remote work '
+                  type: boolean
+                  x-ngsi:
+                    type: Property
+                remoteOnly:
+                  description: 'Candidate only accepts remote work '
+                  type: boolean
+                  x-ngsi:
+                    type: Property
+                workingAreas:
+                  description: 'Locations where the candidate accepts as working locations '
+                  items:
+                    properties:
+                      distanceFromMunicipality:
+                        description: Distance from municipality accepted by the candidate
+                        properties:
+                          amount:
+                            description: Number of miles / km
+                            type: integer
+                            x-ngsi:
+                              type: Property
+                          unit:
+                            description: 'Unit of measure, Kilometers or Miles'
+                            enum:
+                              - Km
+                              - Mi
+                            type: string
+                            x-ngsi:
+                              type: Property
+                        type: object
+                        x-ngsi:
+                          type: Property
+                      location:
+                        description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+                        oneOf:
+                          - description: Geojson reference to the item. Point
+                            properties:
+                              bbox:
+                                items:
+                                  type: number
+                                minItems: 4
+                                type: array
+                              coordinates:
+                                items:
+                                  type: number
+                                minItems: 2
+                                type: array
+                              type:
+                                enum:
+                                  - Point
+                                type: string
+                            required:
+                              - type
+                              - coordinates
+                            title: GeoJSON Point
+                            type: object
+                            x-ngsi:
+                              type: GeoProperty
+                          - description: Geojson reference to the item. LineString
+                            properties:
+                              bbox:
+                                items:
+                                  type: number
+                                minItems: 4
+                                type: array
+                              coordinates:
+                                items:
+                                  items:
+                                  minItems: 2
+                                  type: array
+                                minItems: 2
+                                type: array
+                              type:
+                                enum:
+                                  - LineString
+                                type: string
+                            required:
+                              - type
+                              - coordinates
+                            title: GeoJSON LineString
+                            type: object
+                            x-ngsi:
+                              type: GeoProperty
+                          - description: Geojson reference to the item. Polygon
+                            properties:
+                              bbox:
+                                items:
+                                  type: number
+                                minItems: 4
+                                type: array
+                              coordinates:
+                                items:
+                                  items:
+                                  minItems: 4
+                                  type: array
+                                type: array
+                              type:
+                                enum:
+                                  - Polygon
+                                type: string
+                            required:
+                              - type
+                              - coordinates
+                            title: GeoJSON Polygon
+                            type: object
+                            x-ngsi:
+                              type: GeoProperty
+                          - description: Geojson reference to the item. MultiPoint
+                            properties:
+                              bbox:
+                                items:
+                                  type: number
+                                minItems: 4
+                                type: array
+                              coordinates:
+                                items:
+                                  items:
+                                  minItems: 2
+                                  type: array
+                                type: array
+                              type:
+                                enum:
+                                  - MultiPoint
+                                type: string
+                            required:
+                              - type
+                              - coordinates
+                            title: GeoJSON MultiPoint
+                            type: object
+                            x-ngsi:
+                              type: GeoProperty
+                          - description: Geojson reference to the item. MultiLineString
+                            properties:
+                              bbox:
+                                items:
+                                  type: number
+                                minItems: 4
+                                type: array
+                              coordinates:
+                                items:
+                                  items:
+                                  minItems: 2
+                                  type: array
+                                type: array
+                              type:
+                                enum:
+                                  - MultiLineString
+                                type: string
+                            required:
+                              - type
+                              - coordinates
+                            title: GeoJSON MultiLineString
+                            type: object
+                            x-ngsi:
+                              type: GeoProperty
+                          - description: Geojson reference to the item. MultiLineString
+                            properties:
+                              bbox:
+                                items:
+                                  type: number
+                                minItems: 4
+                                type: array
+                              coordinates:
+                                items:
+                                  items:
+                                  type: array
+                                type: array
+                              type:
+                                enum:
+                                  - MultiPolygon
+                                type: string
+                            required:
+                              - type
+                              - coordinates
+                            title: GeoJSON MultiPolygon
+                            type: object
+                            x-ngsi:
+                              type: GeoProperty
+                        x-ngsi:
+                          type: GeoProperty
+                    type: object
+                  type: array
+                  x-ngsi:
+                    type: Property
+              type: object
+              x-ngsi:
+                type: Property
+          type: object
+        status:
+          enum:
+            - notAvailable
+            - openToOffers
+            - searchingActively
+          type: string
+      type: object
+    currentSalary:
+      description: Object with the description of the retribution
+      properties:
+        amount:
+          description: Monetary salary amount
+          type: integer
+          x-ngsi:
+            type: Property
+        currency:
+          description: Symbol of the currency using ISO 4217
+          type: string
+          x-ngsi:
+            type: Property
+        relevantPerks:
+          items:
+            description: Other non-monetary retributions
+            type: string
+            x-ngsi:
+              type: Property
+          type: array
+      type: object
+      x-ngsi:
+        type: Property
+    dataProvider:
+      description: A sequence of characters identifying the provider of the harmonised data entity
+      type: string
+      x-ngsi:
+        type: Property
+    dateCreated:
+      description: Entity creation timestamp. This will usually be allocated by the storage platform
+      format: date-time
+      type: string
+      x-ngsi:
+        type: Property
+    dateModified:
+      description: Timestamp of the last modification of the entity. This will usually be allocated by the storage platform
+      format: date-time
+      type: string
+      x-ngsi:
+        type: Property
+    description:
+      description: A description of this item
+      type: string
+      x-ngsi:
+        type: Property
+    experience:
+      description: Items describing the professional experience
+      properties:
+        jobs:
+          description: 'List of companies, Public Institutions, NGO or other organizations where you work or have worked for a salary.'
+          items:
+            description: 'Company, Public Institution, NGO or other organizations where you work or have worked for a salary.'
+            properties:
+              organization:
+                description: 'Organization, Company, Institution, Administration, Project or Initiative related to my career.'
+                properties:
+                  URL:
+                    description: 'Link to the site of the Organization, Company, Institution, Administration, Project or Initiative related to my career.'
+                    format: uri
+                    type: string
+                    x-ngsi:
+                      type: Property
+                  address:
+                    description: The mailing address
+                    properties:
+                      addressCountry:
+                        description: 'The country. For example, Spain'
+                        type: string
+                        x-ngsi:
+                          model: https://schema.org/addressCountry
+                          type: Property
+                      addressLocality:
+                        description: 'The locality in which the street address is, and which is in the region'
+                        type: string
+                        x-ngsi:
+                          model: https://schema.org/addressLocality
+                          type: Property
+                      addressRegion:
+                        description: 'The region in which the locality is, and which is in the country'
+                        type: string
+                        x-ngsi:
+                          model: https://schema.org/addressRegion
+                          type: Property
+                      district:
+                        description: 'A district is a type of administrative division that, in some countries, is managed by the local government'
+                        type: string
+                        x-ngsi:
+                          type: Property
+                      postOfficeBoxNumber:
+                        description: 'The post office box number for PO box addresses. For example, 03578'
+                        type: string
+                        x-ngsi:
+                          model: https://schema.org/postOfficeBoxNumber
+                          type: Property
+                      postalCode:
+                        description: 'The postal code. For example, 24004'
+                        type: string
+                        x-ngsi:
+                          model: https://schema.org/https://schema.org/postalCode
+                          type: Property
+                      streetAddress:
+                        description: The street address
+                        type: string
+                        x-ngsi:
+                          model: https://schema.org/streetAddress
+                          type: Property
+                      streetNr:
+                        description: Number identifying a specific property on a public street
+                        type: string
+                        x-ngsi:
+                          type: Property
+                    type: object
+                    x-ngsi:
+                      model: https://schema.org/address
+                      type: Property
+                  description:
+                    description: 'Description of the organization, Company, Institution, Administration, Project or Initiative related to my career.'
+                    type: string
+                    x-ngsi:
+                      type: Property
+                  image:
+                    description: 'Link adn alternative description to the file wth the picture, thumbnail or avatar'
+                    properties:
+                      alt:
+                        description: Alternative description of the image
+                        type: string
+                      data:
+                        description: The raw data of the image
+                        type: string
+                        x-ngsi:
+                          type: Property
+                      encoding:
+                        description: The constant value base64 for encoding the images
+                        enum:
+                          - base64
+                        type: string
+                        x-ngsi:
+                          type: Property
+                      link:
+                        description: 'Link to the stored image '
+                        format: uri
+                        type: string
+                        x-ngsi:
+                          type: Property
+                      mediaType:
+                        description: the media type of the image
+                        enum:
+                          - image/png
+                          - image/jpeg
+                        type: string
+                        x-ngsi:
+                          type: Property
+                    type: object
+                    x-ngsi:
+                      type: Property
+                  name:
+                    description: 'Name of the organization, Company, Institution, Administration, Project or Initiative related to my career.'
+                    type: string
+                    x-ngsi:
+                      type: Property
+                type: object
+                x-ngsi:
+                  type: Property
+              roles:
+                description: role played on the entity / organization
+                items:
+                  description: Roles developed within an organization
+                  properties:
+                    challenges:
+                      description: List of challenges faced while assuming the role
+                      items:
+                        properties:
+                          actions:
+                            description: Actions taken to solve the challenges while playing this role
+                            items:
+                              description: Every action taken to solve the challenges while playing this role
+                              type: string
+                              x-ngsi:
+                                type: Property
+                            type: array
+                            x-ngsi:
+                              type: Property
+                          description:
+                            description: Every challenge faced while assuming the role
+                            type: string
+                            x-ngsi:
+                              type: Property
+                        type: object
+                      type: array
+                      x-ngsi:
+                        type: Property
+                    competences:
+                      items:
+                        description: 'Any competence used to complete professional tasks (tools proficiency as ''Excel'', technologies mastered as ''JAVA'', practices learned as ''TDD'', hardware you know how to handle as vehicles or construction tools, and know-how domains as ''banking'' or ''russia'')'
+                        properties:
+                          description:
+                            description: Description of the competence
+                            type: string
+                            x-ngsi:
+                              type: Property
+                          name:
+                            description: Name of the competence
+                            type: string
+                            x-ngsi:
+                              type: Property
+                          type:
+                            description: type of the competence
+                            enum:
+                              - domain
+                              - hardware
+                              - practice
+                              - technology
+                              - tool
+                            type: string
+                            x-ngsi:
+                              type: Property
+                        type: object
+                      type: array
+                    finishDate:
+                      description: End date of the role
+                      format: date
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    name:
+                      description: Name of the role
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    notes:
+                      description: Notes and information about the role
+                      type: string
+                    referrals:
+                      items:
+                        description: A Person data
+                        properties:
+                          avatar:
+                            description: 'Link adn alternative description to the file wth the picture, thumbnail or avatar'
+                            properties:
+                              alt:
+                                description: Alternative description of the image
+                                type: string
+                              data:
+                                description: The raw data of the image
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                              encoding:
+                                description: The constant value base64 for encoding the images
+                                enum:
+                                  - base64
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                              link:
+                                description: 'Link to the stored image '
+                                format: uri
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                              mediaType:
+                                description: the media type of the image
+                                enum:
+                                  - image/png
+                                  - image/jpeg
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                            type: object
+                            x-ngsi:
+                              type: Property
+                          birthday:
+                            description: Person's birth date
+                            format: date
+                            type: string
+                          contact:
+                            anyOf:
+                              - properties:
+                                  publicProfiles:
+                                    description: Online services that provide a way to contact a person without exposing mail or phone number.
+                                    items:
+                                      properties:
+                                        URL:
+                                          description: Link to the candidate's profiles
+                                          format: uri
+                                          type: string
+                                          x-ngsi:
+                                            type: Property
+                                        type:
+                                          description: Public profiles in social networks or equivalent resources
+                                          enum:
+                                            - github
+                                            - linkedin
+                                            - manfred
+                                            - other
+                                            - stackoverflow
+                                            - twitter
+                                            - xing
+                                            - website
+                                          type: string
+                                          x-ngsi:
+                                            type: Property
+                                      type: object
+                                    type: array
+                                    x-ngsi:
+                                      type: Property
+                                type: object
+                              - properties:
+                                  phoneNumbers:
+                                    description: Phone numbers to contact the candidate
+                                    items:
+                                      properties:
+                                        countryCode:
+                                          description: Country calling code as defined in International Telecommunication Union (ITU) standards E.123 and E.164.
+                                          type: number
+                                          x-ngsi:
+                                            type: Property
+                                        number:
+                                          description: Phone number without the country prefix
+                                          type: string
+                                          x-ngsi:
+                                            type: Property
+                                      type: object
+                                    type: array
+                                    x-ngsi:
+                                      type: Property
+                                type: object
+                              - properties:
+                                  contactMails:
+                                    description: Contact emails of the candidate
+                                    items:
+                                      description: Every contact email of the candidate
+                                      format: email
+                                      type: string
+                                      x-ngsi:
+                                        type: Property
+                                    type: array
+                                    x-ngsi:
+                                      type: Property
+                                type: object
+                            description: A way to contact a specific person
+                            type: object
+                            x-ngsi:
+                              type: Property
+                          description:
+                            description: Brief bio of the candidate
+                            type: string
+                            x-ngsi:
+                              type: Property
+                          location:
+                            description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+                            oneOf:
+                              - description: Geojson reference to the item. Point
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      type: number
+                                    minItems: 2
+                                    type: array
+                                  type:
+                                    enum:
+                                      - Point
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON Point
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                              - description: Geojson reference to the item. LineString
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      items:
+                                      minItems: 2
+                                      type: array
+                                    minItems: 2
+                                    type: array
+                                  type:
+                                    enum:
+                                      - LineString
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON LineString
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                              - description: Geojson reference to the item. Polygon
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      items:
+                                      minItems: 4
+                                      type: array
+                                    type: array
+                                  type:
+                                    enum:
+                                      - Polygon
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON Polygon
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                              - description: Geojson reference to the item. MultiPoint
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      items:
+                                      minItems: 2
+                                      type: array
+                                    type: array
+                                  type:
+                                    enum:
+                                      - MultiPoint
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON MultiPoint
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                              - description: Geojson reference to the item. MultiLineString
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      items:
+                                      minItems: 2
+                                      type: array
+                                    type: array
+                                  type:
+                                    enum:
+                                      - MultiLineString
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON MultiLineString
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                              - description: Geojson reference to the item. MultiLineString
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      items:
+                                      type: array
+                                    type: array
+                                  type:
+                                    enum:
+                                      - MultiPolygon
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON MultiPolygon
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                            x-ngsi:
+                              type: GeoProperty
+                          name:
+                            description: Name of the candidate
+                            type: string
+                            x-ngsi:
+                              type: Property
+                          surnames:
+                            description: Surname o Surnames of the person
+                            type: string
+                          title:
+                            description: 'Role, relationship or activity related to the person.'
+                            type: string
+                        type: object
+                      type: array
+                    startDate:
+                      description: Start date of the role
+                      format: date
+                      type: string
+                      x-ngsi:
+                        type: Property
+                  type: object
+                  x-ngsi:
+                    type: Property
+                type: array
+                x-ngsi:
+                  type: Property
+              type:
+                description: Types of Organization
+                enum:
+                  - academicalInstitution
+                  - bigCorp
+                  - freelance
+                  - NGO
+                  - other
+                  - publicAdministration
+                  - SME
+                  - startup
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+          type: array
+          x-ngsi:
+            type: Property
+        projects:
+          items:
+            properties:
+              details:
+                description: 'Organization, Company, Institution, Administration, Project or Initiative related to my career.'
+                properties:
+                  URL:
+                    description: 'Link to the site of the Organization, Company, Institution, Administration, Project or Initiative related to my career'
+                    format: uri
+                    type: string
+                    x-ngsi:
+                      type: Property
+                  description:
+                    description: 'Description of the Organization, Company, Institution, Administration, Project or Initiative related to my career'
+                    type: string
+                    x-ngsi:
+                      type: Property
+                  image:
+                    description: 'Link adn alternative description to the file wth the picture, thumbnail or avatar'
+                    properties:
+                      alt:
+                        description: Alternative description of the image
+                        type: string
+                      data:
+                        description: The raw data of the image
+                        type: string
+                        x-ngsi:
+                          type: Property
+                      encoding:
+                        description: The constant value base64 for encoding the images
+                        enum:
+                          - base64
+                        type: string
+                        x-ngsi:
+                          type: Property
+                      link:
+                        description: 'Link to the stored image '
+                        format: uri
+                        type: string
+                        x-ngsi:
+                          type: Property
+                      mediaType:
+                        description: the media type of the image
+                        enum:
+                          - image/png
+                          - image/jpeg
+                        type: string
+                        x-ngsi:
+                          type: Property
+                    type: object
+                    x-ngsi:
+                      type: Property
+                  location:
+                    description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+                    oneOf:
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            type: number
+                          minItems: 2
+                          type: array
+                        type:
+                          enum:
+                            - Point
+                          type: string
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                            minItems: 2
+                            type: array
+                          minItems: 2
+                          type: array
+                        type:
+                          enum:
+                            - LineString
+                          type: string
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                            minItems: 4
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - Polygon
+                          type: string
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                            minItems: 2
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiPoint
+                          type: string
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                            minItems: 2
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiLineString
+                          type: string
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiPolygon
+                          type: string
+                    x-ngsi:
+                      type: GeoProperty
+                  name:
+                    description: 'Name of the Organization, Company, Institution, Administration, Project or Initiative related to my career'
+                    type: string
+                    x-ngsi:
+                      type: Property
+                type: object
+                x-ngsi:
+                  type: Property
+              roles:
+                items:
+                  description: Roles developed within an organization
+                  properties:
+                    challenges:
+                      description: List of challenges faced while assuming the role
+                      items:
+                        properties:
+                          actions:
+                            description: Actions taken to solve the challenges while playing this role
+                            items:
+                              description: Every action taken to solve the challenges while playing this role
+                              type: string
+                              x-ngsi:
+                                type: Property
+                            type: array
+                            x-ngsi:
+                              type: Property
+                          description:
+                            description: Every challenge faced while assuming the role
+                            type: string
+                            x-ngsi:
+                              type: Property
+                        type: object
+                      type: array
+                      x-ngsi:
+                        type: Property
+                    competences:
+                      items:
+                        description: 'Any competence used to complete professional tasks (tools proficiency as ''Excel'', technologies mastered as ''JAVA'', practices learned as ''TDD'', hardware you know how to handle as vehicles or construction tools, and know-how domains as ''banking'' or ''russia'')'
+                        properties:
+                          description:
+                            description: Description of the competence
+                            type: string
+                            x-ngsi:
+                              type: Property
+                          name:
+                            description: Name of the competence
+                            type: string
+                            x-ngsi:
+                              type: Property
+                          type:
+                            description: type of the competence
+                            enum:
+                              - domain
+                              - hardware
+                              - practice
+                              - technology
+                              - tool
+                            type: string
+                            x-ngsi:
+                              type: Property
+                        type: object
+                      type: array
+                    finishDate:
+                      description: End date of the role
+                      format: date
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    name:
+                      description: Name of the role
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    notes:
+                      description: Notes and information about the role
+                      type: string
+                    referrals:
+                      items:
+                        description: A Person data
+                        properties:
+                          avatar:
+                            description: 'Link adn alternative description to the file wth the picture, thumbnail or avatar'
+                            properties:
+                              alt:
+                                description: Alternative description of the image
+                                type: string
+                              data:
+                                description: The raw data of the image
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                              encoding:
+                                description: The constant value base64 for encoding the images
+                                enum:
+                                  - base64
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                              link:
+                                description: 'Link to the stored image '
+                                format: uri
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                              mediaType:
+                                description: the media type of the image
+                                enum:
+                                  - image/png
+                                  - image/jpeg
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                            type: object
+                            x-ngsi:
+                              type: Property
+                          birthday:
+                            description: Person's birth date
+                            format: date
+                            type: string
+                          contact:
+                            anyOf:
+                              - properties:
+                                  publicProfiles:
+                                    description: Online services that provide a way to contact a person without exposing mail or phone number.
+                                    items:
+                                      properties:
+                                        URL:
+                                          description: Link to the candidate's profiles
+                                          format: uri
+                                          type: string
+                                          x-ngsi:
+                                            type: Property
+                                        type:
+                                          description: Public profiles in social networks or equivalent resources
+                                          enum:
+                                            - github
+                                            - linkedin
+                                            - manfred
+                                            - other
+                                            - stackoverflow
+                                            - twitter
+                                            - xing
+                                            - website
+                                          type: string
+                                          x-ngsi:
+                                            type: Property
+                                      type: object
+                                    type: array
+                                    x-ngsi:
+                                      type: Property
+                                type: object
+                              - properties:
+                                  phoneNumbers:
+                                    description: Phone numbers to contact the candidate
+                                    items:
+                                      properties:
+                                        countryCode:
+                                          description: Country calling code as defined in International Telecommunication Union (ITU) standards E.123 and E.164.
+                                          type: number
+                                          x-ngsi:
+                                            type: Property
+                                        number:
+                                          description: Phone number without the country prefix
+                                          type: string
+                                          x-ngsi:
+                                            type: Property
+                                      type: object
+                                    type: array
+                                    x-ngsi:
+                                      type: Property
+                                type: object
+                              - properties:
+                                  contactMails:
+                                    description: Contact emails of the candidate
+                                    items:
+                                      description: Every contact email of the candidate
+                                      format: email
+                                      type: string
+                                      x-ngsi:
+                                        type: Property
+                                    type: array
+                                    x-ngsi:
+                                      type: Property
+                                type: object
+                            description: A way to contact a specific person
+                            type: object
+                            x-ngsi:
+                              type: Property
+                          description:
+                            description: Brief bio of the candidate
+                            type: string
+                            x-ngsi:
+                              type: Property
+                          location:
+                            description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+                            oneOf:
+                              - description: Geojson reference to the item. Point
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      type: number
+                                    minItems: 2
+                                    type: array
+                                  type:
+                                    enum:
+                                      - Point
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON Point
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                              - description: Geojson reference to the item. LineString
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      items:
+                                      minItems: 2
+                                      type: array
+                                    minItems: 2
+                                    type: array
+                                  type:
+                                    enum:
+                                      - LineString
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON LineString
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                              - description: Geojson reference to the item. Polygon
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      items:
+                                      minItems: 4
+                                      type: array
+                                    type: array
+                                  type:
+                                    enum:
+                                      - Polygon
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON Polygon
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                              - description: Geojson reference to the item. MultiPoint
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      items:
+                                      minItems: 2
+                                      type: array
+                                    type: array
+                                  type:
+                                    enum:
+                                      - MultiPoint
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON MultiPoint
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                              - description: Geojson reference to the item. MultiLineString
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      items:
+                                      minItems: 2
+                                      type: array
+                                    type: array
+                                  type:
+                                    enum:
+                                      - MultiLineString
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON MultiLineString
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                              - description: Geojson reference to the item. MultiLineString
+                                properties:
+                                  bbox:
+                                    items:
+                                      type: number
+                                    minItems: 4
+                                    type: array
+                                  coordinates:
+                                    items:
+                                      items:
+                                      type: array
+                                    type: array
+                                  type:
+                                    enum:
+                                      - MultiPolygon
+                                    type: string
+                                required:
+                                  - type
+                                  - coordinates
+                                title: GeoJSON MultiPolygon
+                                type: object
+                                x-ngsi:
+                                  type: GeoProperty
+                            x-ngsi:
+                              type: GeoProperty
+                          name:
+                            description: Name of the candidate
+                            type: string
+                            x-ngsi:
+                              type: Property
+                          surnames:
+                            description: Surname o Surnames of the person
+                            type: string
+                          title:
+                            description: 'Role, relationship or activity related to the person.'
+                            type: string
+                        type: object
+                      type: array
+                    startDate:
+                      description: Start date of the role
+                      format: date
+                      type: string
+                      x-ngsi:
+                        type: Property
+                  type: object
+                  x-ngsi:
+                    type: Property
+                type: array
+              type:
+                description: Types of Projects
+                enum:
+                  - openSource
+                  - other
+                  - personalAchievement
+                  - proBono
+                  - sideProject
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+          type: array
+        publicArtifacts:
+          items:
+            properties:
+              details:
+                description: 'Organization, Company, Institution, Administration, Project or Initiative related to my career.'
+                properties:
+                  URL:
+                    description: 'Link to the site of the Organization, Company, Institution, Administration, Project or Initiative related to my career'
+                    format: uri
+                    type: string
+                    x-ngsi:
+                      type: Property
+                  description:
+                    description: 'Description of the Organization, Company, Institution, Administration, Project or Initiative related to my career'
+                    type: string
+                    x-ngsi:
+                      type: Property
+                  image:
+                    description: 'Link adn alternative description to the file wth the picture, thumbnail or avatar'
+                    properties:
+                      alt:
+                        description: Alternative description of the image
+                        type: string
+                      data:
+                        description: The raw data of the image
+                        type: string
+                        x-ngsi:
+                          type: Property
+                      encoding:
+                        description: The constant value base64 for encoding the images
+                        enum:
+                          - base64
+                        type: string
+                        x-ngsi:
+                          type: Property
+                      link:
+                        description: 'Link to the stored image '
+                        format: uri
+                        type: string
+                        x-ngsi:
+                          type: Property
+                      mediaType:
+                        description: the media type of the image
+                        enum:
+                          - image/png
+                          - image/jpeg
+                        type: string
+                        x-ngsi:
+                          type: Property
+                    type: object
+                    x-ngsi:
+                      type: Property
+                  location:
+                    description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+                    oneOf:
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            type: number
+                          minItems: 2
+                          type: array
+                        type:
+                          enum:
+                            - Point
+                          type: string
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                            minItems: 2
+                            type: array
+                          minItems: 2
+                          type: array
+                        type:
+                          enum:
+                            - LineString
+                          type: string
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                            minItems: 4
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - Polygon
+                          type: string
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                            minItems: 2
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiPoint
+                          type: string
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                            minItems: 2
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiLineString
+                          type: string
+                      - bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiPolygon
+                          type: string
+                    x-ngsi:
+                      type: GeoProperty
+                  name:
+                    description: 'Name of the Organization, Company, Institution, Administration, Project or Initiative related to my career'
+                    type: string
+                    x-ngsi:
+                      type: Property
+                type: object
+                x-ngsi:
+                  type: Property
+              publishingDate:
+                format: date
+                type: string
+              relatedCompetences:
+                items:
+                  description: 'Any competence used to complete professional tasks (tools proficiency as ''Excel'', technologies mastered as ''JAVA'', practices learned as ''TDD'', hardware you know how to handle as vehicles or construction tools, and know-how domains as ''banking'' or ''russia'')'
+                  properties:
+                    description:
+                      description: Description of the competence
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    name:
+                      description: Name of the competence
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    type:
+                      description: type of the competence
+                      enum:
+                        - domain
+                        - hardware
+                        - practice
+                        - technology
+                        - tool
+                      type: string
+                      x-ngsi:
+                        type: Property
+                  type: object
+                type: array
+              tags:
+                description: A list of tags with values to provide the candidates a way to segment and categorize elements in their CV.
+                items:
+                  description: 'Every tag description '
+                  type: string
+                  x-ngsi:
+                    type: Property
+                type: array
+                x-ngsi:
+                  type: Property
+              type:
+                description: Types of Public Artifacts
+                enum:
+                  - achievement
+                  - launch
+                  - post
+                  - sideProject
+                  - talk
+                  - video
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+          type: array
+      type: object
+      x-ngsi:
+        type: Property
+    id:
+      anyOf:
+        - description: Identifier format of any NGSI entity
+          maxLength: 256
+          minLength: 1
+          pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+          type: string
+          x-ngsi:
+            type: Property
+        - description: Identifier format of any NGSI entity
+          format: uri
+          type: string
+          x-ngsi:
+            type: Property
+      description: Unique identifier of the entity
+      x-ngsi:
+        type: Property
+    interestingFacts:
+      description: 'Facts that define you: your IDE, your favorite books,  your football team...'
+      items:
+        properties:
+          fact:
+            description: Description of the interesting fact
+            type: string
+            x-ngsi:
+              type: Property
+          topic:
+            description: Topic of the interesting fact
+            type: string
+            x-ngsi:
+              type: Property
+        type: object
+      type: array
+      x-ngsi:
+        type: Property
+    knowledge:
+      hardSkills:
+        description: 'Property. HardSkills are a subset of competence types (tool, technology or hardware).'
+        items:
+          properties:
+            level:
+              enum:
+                - basic
+                - expert
+                - high
+                - intermediate
+              type: string
+            skill:
+              description: 'Any competence used to complete professional tasks (tools proficiency as ''Excel'', technologies mastered as ''JAVA'', practices learned as ''TDD'', hardware you know how to handle as vehicles or construction tools, and know-how domains as ''banking'' or ''russia'')'
+              properties:
+                description:
+                  description: Property. Description of the competence
+                  type: string
+                name:
+                  description: Property. Name of the competence
+                  type: string
+                type:
+                  description: Property. type of the competence
+                  enum:
+                    - domain
+                    - hardware
+                    - practice
+                    - technology
+                    - tool
+                  type: string
+              type: object
+          type: object
+        type: array
+      properties:
+        languages:
+          items:
+            properties:
+              fullName:
+                description: A human friendly readable language name
+                type: string
+                x-ngsi:
+                  type: Property
+              level:
+                enum:
+                  - Elementary proficiency
+                  - Limited working proficiency
+                  - Professional working proficiency
+                  - Full professional proficiency
+                  - Native or bilingual proficiency
+                type: string
+              name:
+                description: 'A language expressed as a [ISO 639-1 code](https://en.wikipedia.org/wiki/ISO_639-1)'
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+          type: array
+      softSkills:
+        description: Property. SoftSkills are a subset of competence types (practice or domain)
+        items:
+          properties:
+            level:
+              enum:
+                - basic
+                - expert
+                - high
+                - intermediate
+              type: string
+            skill:
+              description: 'Any competence used to complete professional tasks (tools proficiency as ''Excel'', technologies mastered as ''JAVA'', practices learned as ''TDD'', hardware you know how to handle as vehicles or construction tools, and know-how domains as ''banking'' or ''russia'')'
+              properties:
+                description:
+                  description: Property. Description of the competence
+                  type: string
+                name:
+                  description: Property. Name of the competence
+                  type: string
+                type:
+                  description: Property. type of the competence
+                  enum:
+                    - domain
+                    - hardware
+                    - practice
+                    - technology
+                    - tool
+                  type: string
+              type: object
+          type: object
+        type: array
+      studies:
+        items:
+          properties:
+            degreeAchieved:
+              description: Property. If studies finished achieving the linked degree
+              type: boolean
+            description:
+              description: Property. Long description of the study
+              type: string
+            finishDate:
+              description: 'Property. Date when studies finished (if finished), with or without obtaining a degree'
+              format: date
+              type: string
+            institution:
+              description: 'Property. Organization, Company, Institution, Administration, Project or Initiative related to my career.'
+              properties:
+                URL:
+                  description: 'Property. Link to the site of the Organization, Company, Institution, Administration, Project or Initiative related to my career'
+                  format: uri
+                  type: string
+                description:
+                  description: 'Property. Description of the Organization, Company, Institution, Administration, Project or Initiative related to my career'
+                  type: string
+                image:
+                  description: 'Property. Link adn alternative description to the file wth the picture, thumbnail or avatar'
+                  properties:
+                    alt:
+                      description: Alternative description of the image
+                      type: string
+                    data:
+                      description: Property. The raw data of the image
+                      type: string
+                    encoding:
+                      description: Property. The constant value base64 for encoding the images
+                      enum:
+                        - base64
+                      type: string
+                    link:
+                      description: 'Property. Link to the stored image '
+                      format: uri
+                      type: string
+                    mediaType:
+                      description: Property. the media type of the image
+                      enum:
+                        - image/png
+                        - image/jpeg
+                      type: string
+                  type: object
+                location:
+                  description: 'GeoProperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+                  oneOf:
+                    - description: GeoProperty. Geojson reference to the item. Point
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            type: number
+                          minItems: 2
+                          type: array
+                        type:
+                          enum:
+                            - Point
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON Point
+                      type: object
+                    - description: GeoProperty. Geojson reference to the item. LineString
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                              type: number
+                            minItems: 2
+                            type: array
+                          minItems: 2
+                          type: array
+                        type:
+                          enum:
+                            - LineString
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON LineString
+                      type: object
+                    - description: GeoProperty. Geojson reference to the item. Polygon
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                              items:
+                                type: number
+                              minItems: 2
+                              type: array
+                            minItems: 4
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - Polygon
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON Polygon
+                      type: object
+                    - description: GeoProperty. Geojson reference to the item. MultiPoint
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                              type: number
+                            minItems: 2
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiPoint
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON MultiPoint
+                      type: object
+                    - description: GeoProperty. Geojson reference to the item. MultiLineString
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                              items:
+                                type: number
+                              minItems: 2
+                              type: array
+                            minItems: 2
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiLineString
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON MultiLineString
+                      type: object
+                    - description: GeoProperty. Geojson reference to the item. MultiLineString
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                              items:
+                                items:
+                                  type: number
+                                minItems: 2
+                                type: array
+                              minItems: 4
+                              type: array
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiPolygon
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON MultiPolygon
+                      type: object
+                name:
+                  description: 'Property. Name of the Organization, Company, Institution, Administration, Project or Initiative related to my career'
+                  type: string
+              type: object
+            linkedCompetences:
+              items:
+                description: 'Any competence used to complete professional tasks (tools proficiency as ''Excel'', technologies mastered as ''JAVA'', practices learned as ''TDD'', hardware you know how to handle as vehicles or construction tools, and know-how domains as ''banking'' or ''russia'')'
+                properties:
+                  description:
+                    description: Property. Description of the competence
+                    type: string
+                  name:
+                    description: Property. Name of the competence
+                    type: string
+                  type:
+                    description: Property. type of the competence
+                    enum:
+                      - domain
+                      - hardware
+                      - practice
+                      - technology
+                      - tool
+                    type: string
+                type: object
+              type: array
+            name:
+              description: 'Property. Name of the study, in example Software Engineering, Certified ScrumMaster, etc'
+              type: string
+            startDate:
+              description: Property. Date when studies started in ISO 86401format yyyy-mm-dd
+              format: date
+              type: string
+            studyType:
+              description: 'Types of studies: ''officialDegree'' is a degree accredited by the government (University Degree) or an external, recognized and independent agency (some MBAs). ''certification'' is a degree accredited by a private institution (eg. Oracle Database Admin Certification or Project Management Institute PMP). ''unaccredited'' is a course without any accreditation (eg. Coursera or Platzi courses), but this doesn''t mean that is not valid, legit, or has poor quality. ''selfTraining'' is the study designed, managed and evaluated just by the own learner.'
+              enum:
+                - certification
+                - officialDegree
+                - selfTraining
+                - unaccredited
+              type: string
+          type: object
+        type: array
+      type: object
+    location:
+      description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+      oneOf:
+        - description: Geojson reference to the item. Point
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                type: number
+              minItems: 2
+              type: array
+            type:
+              enum:
+                - Point
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON Point
+          type: object
+          x-ngsi:
+            type: GeoProperty
+        - description: Geojson reference to the item. LineString
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                items:
+                  type: number
+                minItems: 2
+                type: array
+              minItems: 2
+              type: array
+            type:
+              enum:
+                - LineString
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON LineString
+          type: object
+          x-ngsi:
+            type: GeoProperty
+        - description: Geojson reference to the item. Polygon
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                items:
+                  items:
+                    type: number
+                  minItems: 2
+                  type: array
+                minItems: 4
+                type: array
+              type: array
+            type:
+              enum:
+                - Polygon
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON Polygon
+          type: object
+          x-ngsi:
+            type: GeoProperty
+        - description: Geojson reference to the item. MultiPoint
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                items:
+                  type: number
+                minItems: 2
+                type: array
+              type: array
+            type:
+              enum:
+                - MultiPoint
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON MultiPoint
+          type: object
+          x-ngsi:
+            type: GeoProperty
+        - description: Geojson reference to the item. MultiLineString
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                items:
+                  items:
+                    type: number
+                  minItems: 2
+                  type: array
+                minItems: 2
+                type: array
+              type: array
+            type:
+              enum:
+                - MultiLineString
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON MultiLineString
+          type: object
+          x-ngsi:
+            type: GeoProperty
+        - description: Geojson reference to the item. MultiLineString
+          properties:
+            bbox:
+              items:
+                type: number
+              minItems: 4
+              type: array
+            coordinates:
+              items:
+                items:
+                  items:
+                    items:
+                      type: number
+                    minItems: 2
+                    type: array
+                  minItems: 4
+                  type: array
+                type: array
+              type: array
+            type:
+              enum:
+                - MultiPolygon
+              type: string
+          required:
+            - type
+            - coordinates
+          title: GeoJSON MultiPolygon
+          type: object
+          x-ngsi:
+            type: GeoProperty
+      x-ngsi:
+        type: GeoProperty
+    name:
+      description: The name of this item
+      type: string
+      x-ngsi:
+        type: Property
+    noticePeriod:
+      description: Notice period to leave job
+      type: number
+      x-ngsi:
+        type: Property
+    owner:
+      description: A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)
+      items:
+        anyOf:
+          - description: Identifier format of any NGSI entity
+            maxLength: 256
+            minLength: 1
+            pattern: ^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$
+            type: string
+            x-ngsi:
+              type: Property
+          - description: Identifier format of any NGSI entity
+            format: uri
+            type: string
+            x-ngsi:
+              type: Property
+        description: Unique identifier of the entity
+        x-ngsi:
+          type: Property
+      type: array
+      x-ngsi:
+        type: Property
+    recommendations:
+      description: Content I like and recommend that can help define me as a professional.
+      items:
+        properties:
+          URL:
+            description: Link to the recommended item
+            type: string
+            x-ngsi:
+              type: Property
+          authors:
+            description: A list of authors of the recommended content
+            items:
+              description: A Person data
+              properties:
+                avatar:
+                  description: 'Link adn alternative description to the file wth the picture, thumbnail or avatar'
+                  properties:
+                    alt:
+                      description: Alternative description of the image
+                      type: string
+                    data:
+                      description: The raw data of the image
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    encoding:
+                      description: The constant value base64 for encoding the images
+                      enum:
+                        - base64
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    link:
+                      description: 'Link to the stored image '
+                      format: uri
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    mediaType:
+                      description: the media type of the image
+                      enum:
+                        - image/png
+                        - image/jpeg
+                      type: string
+                      x-ngsi:
+                        type: Property
+                  type: object
+                  x-ngsi:
+                    type: Property
+                birthday:
+                  description: Person's birth date
+                  format: date
+                  type: string
+                contact:
+                  anyOf:
+                    - properties:
+                        publicProfiles:
+                          description: Online services that provide a way to contact a person without exposing mail or phone number.
+                          items:
+                            properties:
+                              URL:
+                                description: Link to the candidate's profiles
+                                format: uri
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                              type:
+                                description: Public profiles in social networks or equivalent resources
+                                enum:
+                                  - github
+                                  - linkedin
+                                  - manfred
+                                  - other
+                                  - stackoverflow
+                                  - twitter
+                                  - xing
+                                  - website
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                            type: object
+                          type: array
+                          x-ngsi:
+                            type: Property
+                      type: object
+                    - properties:
+                        phoneNumbers:
+                          description: Phone numbers to contact the candidate
+                          items:
+                            properties:
+                              countryCode:
+                                description: Country calling code as defined in International Telecommunication Union (ITU) standards E.123 and E.164.
+                                type: number
+                                x-ngsi:
+                                  type: Property
+                              number:
+                                description: Phone number without the country prefix
+                                type: string
+                                x-ngsi:
+                                  type: Property
+                            type: object
+                          type: array
+                          x-ngsi:
+                            type: Property
+                      type: object
+                    - properties:
+                        contactMails:
+                          description: Contact emails of the candidate
+                          items:
+                            description: Every contact email of the candidate
+                            format: email
+                            type: string
+                            x-ngsi:
+                              type: Property
+                          type: array
+                          x-ngsi:
+                            type: Property
+                      type: object
+                  description: A way to contact a specific person
+                  type: object
+                  x-ngsi:
+                    type: Property
+                description:
+                  description: Brief bio of the candidate
+                  type: string
+                  x-ngsi:
+                    type: Property
+                location:
+                  description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+                  oneOf:
+                    - description: Geojson reference to the item. Point
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            type: number
+                          minItems: 2
+                          type: array
+                        type:
+                          enum:
+                            - Point
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON Point
+                      type: object
+                      x-ngsi:
+                        type: GeoProperty
+                    - description: Geojson reference to the item. LineString
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                              type: number
+                            minItems: 2
+                            type: array
+                          minItems: 2
+                          type: array
+                        type:
+                          enum:
+                            - LineString
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON LineString
+                      type: object
+                      x-ngsi:
+                        type: GeoProperty
+                    - description: Geojson reference to the item. Polygon
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                              items:
+                                type: number
+                              minItems: 2
+                              type: array
+                            minItems: 4
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - Polygon
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON Polygon
+                      type: object
+                      x-ngsi:
+                        type: GeoProperty
+                    - description: Geojson reference to the item. MultiPoint
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                              type: number
+                            minItems: 2
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiPoint
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON MultiPoint
+                      type: object
+                      x-ngsi:
+                        type: GeoProperty
+                    - description: Geojson reference to the item. MultiLineString
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                              items:
+                                type: number
+                              minItems: 2
+                              type: array
+                            minItems: 2
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiLineString
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON MultiLineString
+                      type: object
+                      x-ngsi:
+                        type: GeoProperty
+                    - description: Geojson reference to the item. MultiLineString
+                      properties:
+                        bbox:
+                          items:
+                            type: number
+                          minItems: 4
+                          type: array
+                        coordinates:
+                          items:
+                            items:
+                              items:
+                                items:
+                                  type: number
+                                minItems: 2
+                                type: array
+                              minItems: 4
+                              type: array
+                            type: array
+                          type: array
+                        type:
+                          enum:
+                            - MultiPolygon
+                          type: string
+                      required:
+                        - type
+                        - coordinates
+                      title: GeoJSON MultiPolygon
+                      type: object
+                      x-ngsi:
+                        type: GeoProperty
+                  x-ngsi:
+                    type: GeoProperty
+                name:
+                  description: Name of the candidate
+                  type: string
+                  x-ngsi:
+                    type: Property
+                surnames:
+                  description: Surname o Surnames of the person
+                  type: string
+                title:
+                  description: 'Role, relationship or activity related to the person.'
+                  type: string
+              type: object
+            type: array
+            x-ngsi:
+              type: Property
+          title:
+            description: title of the recommended content
+            type: string
+            x-ngsi:
+              type: Property
+          type:
+            description: Types of Recommendations
+            enum:
+              - other
+              - podcast
+              - reading
+              - video
+              - web
+            type: string
+            x-ngsi:
+              type: Property
+        type: object
+      summary:
+        description: Property. Summary of the recommendations
+        type: string
+      type: array
+      x-ngsi:
+        type: Property
+    relevantLinks:
+      description: Relevant links of the person
+      items:
+        properties:
+          URL:
+            description: link to the relevant site
+            format: uri
+            type: string
+            x-ngsi:
+              type: Property
+          description:
+            description: Additional description of the link
+            type: string
+            x-ngsi:
+              type: Property
+          type:
+            enum:
+              - github
+              - linkedin
+              - manfred
+              - other
+              - stackoverflow
+              - twitter
+              - xing
+              - website
+            type: string
+        type: object
+      type: array
+      x-ngsi:
+        type: Property
+    relevantYearsOfExperience:
+      description: Relevant years of experience related with desired professional roles and goals.
+      type: number
+      x-ngsi:
+        type: Property
+    seeAlso:
+      description: list of uri pointing to additional resources about the item
+      oneOf:
+        - items:
+            format: uri
+            type: string
+          minItems: 1
+          type: array
+        - format: uri
+          type: string
+      x-ngsi:
+        type: Property
+    settings:
+      description: CV Settings
+      properties:
+        language:
+          description: 'The language of the CV expressed as a [ISO 639-1 code](https://en.wikipedia.org/wiki/ISO_639-1)'
+          type: string
+          x-ngsi:
+            type: Property
+        lastUpdate:
+          description: Last time the CV was updated
+          format: date
+          type: string
+          x-ngsi:
+            type: Property
+      type: object
+      x-ngsi:
+        type: Property
+    significativeRelationships:
+      description: 'Friends or colleagues with whom I have worked or not, whose relationship with me can help define me as a professional.'
+      items:
+        description: A Person data
+        properties:
+          avatar:
+            description: 'Link adn alternative description to the file wth the picture, thumbnail or avatar'
+            properties:
+              alt:
+                description: Alternative description of the image
+                type: string
+              data:
+                description: The raw data of the image
+                type: string
+                x-ngsi:
+                  type: Property
+              encoding:
+                description: The constant value base64 for encoding the images
+                enum:
+                  - base64
+                type: string
+                x-ngsi:
+                  type: Property
+              link:
+                description: 'Link to the stored image '
+                format: uri
+                type: string
+                x-ngsi:
+                  type: Property
+              mediaType:
+                description: the media type of the image
+                enum:
+                  - image/png
+                  - image/jpeg
+                type: string
+                x-ngsi:
+                  type: Property
+            type: object
+            x-ngsi:
+              type: Property
+          birthday:
+            description: Person's birth date
+            format: date
+            type: string
+          contact:
+            anyOf:
+              - properties:
+                  publicProfiles:
+                    description: Online services that provide a way to contact a person without exposing mail or phone number.
+                    items:
+                      properties:
+                        URL:
+                          description: Link to the candidate's profiles
+                          format: uri
+                          type: string
+                          x-ngsi:
+                            type: Property
+                        type:
+                          description: Public profiles in social networks or equivalent resources
+                          enum:
+                            - github
+                            - linkedin
+                            - manfred
+                            - other
+                            - stackoverflow
+                            - twitter
+                            - xing
+                            - website
+                          type: string
+                          x-ngsi:
+                            type: Property
+                      type: object
+                    type: array
+                    x-ngsi:
+                      type: Property
+                type: object
+              - properties:
+                  phoneNumbers:
+                    description: Phone numbers to contact the candidate
+                    items:
+                      properties:
+                        countryCode:
+                          description: Country calling code as defined in International Telecommunication Union (ITU) standards E.123 and E.164.
+                          type: number
+                          x-ngsi:
+                            type: Property
+                        number:
+                          description: Phone number without the country prefix
+                          type: string
+                          x-ngsi:
+                            type: Property
+                      type: object
+                    type: array
+                    x-ngsi:
+                      type: Property
+                type: object
+              - properties:
+                  contactMails:
+                    description: Contact emails of the candidate
+                    items:
+                      description: Every contact email of the candidate
+                      format: email
+                      type: string
+                      x-ngsi:
+                        type: Property
+                    type: array
+                    x-ngsi:
+                      type: Property
+                type: object
+            description: A way to contact a specific person
+            type: object
+            x-ngsi:
+              type: Property
+          description:
+            description: Brief bio of the candidate
+            type: string
+            x-ngsi:
+              type: Property
+          location:
+            description: 'Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon'
+            oneOf:
+              - description: Geojson reference to the item. Point
+                properties:
+                  bbox:
+                    items:
+                      type: number
+                    minItems: 4
+                    type: array
+                  coordinates:
+                    items:
+                      type: number
+                    minItems: 2
+                    type: array
+                  type:
+                    enum:
+                      - Point
+                    type: string
+                required:
+                  - type
+                  - coordinates
+                title: GeoJSON Point
+                type: object
+                x-ngsi:
+                  type: GeoProperty
+              - description: Geojson reference to the item. LineString
+                properties:
+                  bbox:
+                    items:
+                      type: number
+                    minItems: 4
+                    type: array
+                  coordinates:
+                    items:
+                      items:
+                        type: number
+                      minItems: 2
+                      type: array
+                    minItems: 2
+                    type: array
+                  type:
+                    enum:
+                      - LineString
+                    type: string
+                required:
+                  - type
+                  - coordinates
+                title: GeoJSON LineString
+                type: object
+                x-ngsi:
+                  type: GeoProperty
+              - description: Geojson reference to the item. Polygon
+                properties:
+                  bbox:
+                    items:
+                      type: number
+                    minItems: 4
+                    type: array
+                  coordinates:
+                    items:
+                      items:
+                        items:
+                          type: number
+                        minItems: 2
+                        type: array
+                      minItems: 4
+                      type: array
+                    type: array
+                  type:
+                    enum:
+                      - Polygon
+                    type: string
+                required:
+                  - type
+                  - coordinates
+                title: GeoJSON Polygon
+                type: object
+                x-ngsi:
+                  type: GeoProperty
+              - description: Geojson reference to the item. MultiPoint
+                properties:
+                  bbox:
+                    items:
+                      type: number
+                    minItems: 4
+                    type: array
+                  coordinates:
+                    items:
+                      items:
+                        type: number
+                      minItems: 2
+                      type: array
+                    type: array
+                  type:
+                    enum:
+                      - MultiPoint
+                    type: string
+                required:
+                  - type
+                  - coordinates
+                title: GeoJSON MultiPoint
+                type: object
+                x-ngsi:
+                  type: GeoProperty
+              - description: Geojson reference to the item. MultiLineString
+                properties:
+                  bbox:
+                    items:
+                      type: number
+                    minItems: 4
+                    type: array
+                  coordinates:
+                    items:
+                      items:
+                        items:
+                          type: number
+                        minItems: 2
+                        type: array
+                      minItems: 2
+                      type: array
+                    type: array
+                  type:
+                    enum:
+                      - MultiLineString
+                    type: string
+                required:
+                  - type
+                  - coordinates
+                title: GeoJSON MultiLineString
+                type: object
+                x-ngsi:
+                  type: GeoProperty
+              - description: Geojson reference to the item. MultiLineString
+                properties:
+                  bbox:
+                    items:
+                      type: number
+                    minItems: 4
+                    type: array
+                  coordinates:
+                    items:
+                      items:
+                        items:
+                          items:
+                            type: number
+                          minItems: 2
+                          type: array
+                        minItems: 4
+                        type: array
+                      type: array
+                    type: array
+                  type:
+                    enum:
+                      - MultiPolygon
+                    type: string
+                required:
+                  - type
+                  - coordinates
+                title: GeoJSON MultiPolygon
+                type: object
+                x-ngsi:
+                  type: GeoProperty
+            x-ngsi:
+              type: GeoProperty
+          name:
+            description: Name of the candidate
+            type: string
+            x-ngsi:
+              type: Property
+          surnames:
+            description: Surname o Surnames of the person
+            type: string
+          title:
+            description: 'Role, relationship or activity related to the person.'
+            type: string
+        type: object
+      type: array
+      x-ngsi:
+        type: Property
+    source:
+      description: 'A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object'
+      type: string
+      x-ngsi:
+        type: Property
+    type:
+      description: NGSI Data type. It has to be CurriculumVitae
+      enum:
+        - CurriculumVitae
+      type: string
+      x-ngsi:
+        type: Property
+  required:
+    - id
+    - type
+  type: object
+  x-derived-from: https://github.com/getmanfred/mac/blob/master/schema/schema.json
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2023 Contributors to Smart Data Models Program'
+  x-license-url: https://github.com/smart-data-models/dataModel.HumanResources/blob/master/CurriculumVitae/LICENSE.md
+  x-model-schema: https://smart-data-models.github.io/dataModel.HumanResources/CurriculumVitae/schema.json
+  x-model-tags: Manfred
+  x-version: 0.0.1
