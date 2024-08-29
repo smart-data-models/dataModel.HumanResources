@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$schemaVersion": "0.0.1",
+  "$schemaVersion": "0.0.2",
   "$id": "https://smart-data-models.github.io/dataModel.HumanResources/CurriculumVitae/schema.json",
   "title": "Smart Data Models - Manfred Awesomic Curriculum vitae adapted to Smart Data Models",
   "description": "An open Curriculum vitae format",
@@ -9,10 +9,10 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/master/common-schema.json#/definitions/GSMA-Commons"
     },
     {
-      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/master/common-schema.json#/definitions/Location-Commons"
     },
     {
       "properties": {
@@ -193,7 +193,7 @@
                         "description": "Property. Link to the site of the Organization, Company, Institution, Administration, Project or Initiative related to my career."
                       },
                       "address": {
-                        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/address"
+                        "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/master/common-schema.json#/definitions/Location-Commons/properties/address"
                       },
                       "image": {
                         "$ref": "https://raw.githubusercontent.com/smart-data-models/dataModel.HumanResources/master/HumanResources-schema.json#/definitions/HumanResources-Commons/properties/image"
@@ -503,7 +503,7 @@
                         "type": "object",
                         "properties": {
                           "location": {
-                            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+                            "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/master/common-schema.json#/definitions/Location-Commons/properties/location"
                           },
                           "distanceFromMunicipality": {
                             "type": "object",
