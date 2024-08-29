@@ -8,7 +8,7 @@
 <!-- /15-License -->  
 <!-- 20-Description -->  
 Globale Beschreibung: **Ein offenes Lebenslaufformat**  
-Version: 0.0.1  
+Version: 0.0.2  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
@@ -3418,11 +3418,11 @@ CurriculumVitae:
     - type    
   type: object    
   x-derived-from: https://github.com/getmanfred/mac/blob/master/schema/schema.json    
-  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2023 Contributors to Smart Data Models Program'    
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2024 Contributors to Smart Data Models Program'    
   x-license-url: https://github.com/smart-data-models/dataModel.HumanResources/blob/master/CurriculumVitae/LICENSE.md    
   x-model-schema: https://smart-data-models.github.io/dataModel.HumanResources/CurriculumVitae/schema.json    
   x-model-tags: Manfred    
-  x-version: 0.0.1    
+  x-version: 0.0.2    
 ```  
 </details>    
 <!-- /60-ModelYaml -->  
@@ -6049,7 +6049,7 @@ CurriculumVitae:
 ```  
 </details>  
 #### CurriculumVitae NGSI-LD Schlüsselwerte Beispiel  
-Hier ist ein Beispiel für einen CurriculumVitae im JSON-LD Format als Key-Values. Dies ist mit NGSI-LD kompatibel, wenn `options=keyValues` verwendet wird und liefert die Kontextdaten einer einzelnen Entität.  
+Hier ist ein Beispiel für einen CurriculumVitae im JSON-LD Format als Key-Values. Dies ist kompatibel mit NGSI-LD, wenn `options=keyValues` verwendet wird und liefert die Kontextdaten einer einzelnen Entität.  
 <details><summary><strong>show/hide example</strong></summary>    
 ```json  
 {  
