@@ -8,7 +8,7 @@
 <!-- /15-License -->  
 <!-- 20-Description -->  
 Descrizione globale: **Un Curriculum vitae in formato aperto**  
-versione: 0.0.1  
+versione: 0.0.2  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
@@ -26,7 +26,7 @@
 - `address[object]`: L'indirizzo postale  . Model: [https://schema.org/address](https://schema.org/address)	- `addressCountry[string]`: Il paese. Ad esempio, la Spagna  . Model: [https://schema.org/addressCountry](https://schema.org/addressCountry)  
 	- `addressLocality[string]`: La località in cui si trova l'indirizzo civico e che si trova nella regione  . Model: [https://schema.org/addressLocality](https://schema.org/addressLocality)  
 	- `addressRegion[string]`: La regione in cui si trova la località, e che si trova nel paese  . Model: [https://schema.org/addressRegion](https://schema.org/addressRegion)  
-	- `district[string]`: Un distretto è un tipo di divisione amministrativa che, in alcuni Paesi, è gestita dal governo locale.    
+	- `district[string]`: Un distretto è un tipo di divisione amministrativa che, in alcuni paesi, è gestita dal governo locale.    
 	- `postOfficeBoxNumber[string]`: Il numero di casella postale per gli indirizzi di casella postale. Ad esempio, 03578  . Model: [https://schema.org/postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)  
 	- `postalCode[string]`: Il codice postale. Ad esempio, 24004  . Model: [https://schema.org/https://schema.org/postalCode](https://schema.org/https://schema.org/postalCode)  
 	- `streetAddress[string]`: L'indirizzo stradale  . Model: [https://schema.org/streetAddress](https://schema.org/streetAddress)  
@@ -39,7 +39,7 @@
 - `currentSalary[object]`: Oggetto con la descrizione della punizione  	- `amount[integer]`: Importo monetario dello stipendio    
 	- `currency[string]`: Simbolo della valuta secondo ISO 4217    
 	- `relevantPerks`:     
-- `dataProvider[string]`: una sequenza di caratteri che identifica il fornitore dell'entità di dati armonizzati  - `dateCreated[date-time]`: Timestamp di creazione dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione  - `dateModified[date-time]`: Timestamp dell'ultima modifica dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione  - `description[string]`: Descrizione dell'articolo  - `experience[object]`: Voci che descrivono l'esperienza professionale  	- `jobs[array]`: Elenco delle aziende, istituzioni pubbliche, ONG o altre organizzazioni in cui lavorate o avete lavorato retribuiti.    
+- `dataProvider[string]`: una sequenza di caratteri che identifica il fornitore dell'entità di dati armonizzata  - `dateCreated[date-time]`: Timestamp di creazione dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione  - `dateModified[date-time]`: Timestamp dell'ultima modifica dell'entità. Di solito viene assegnato dalla piattaforma di archiviazione  - `description[string]`: Descrizione dell'articolo  - `experience[object]`: Voci che descrivono l'esperienza professionale  	- `jobs[array]`: Elenco delle aziende, istituzioni pubbliche, ONG o altre organizzazioni in cui lavorate o avete lavorato retribuiti.    
 	- `projects`:     
 	- `publicArtifacts`:     
 - `id[*]`: Identificatore univoco dell'entità  - `interestingFacts[array]`: Fatti che ti definiscono: il tuo IDE, i tuoi libri preferiti, la tua squadra di calcio...  - `knowledge`:   	- `languages`:     
@@ -3418,11 +3418,11 @@ CurriculumVitae:
     - type    
   type: object    
   x-derived-from: https://github.com/getmanfred/mac/blob/master/schema/schema.json    
-  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2023 Contributors to Smart Data Models Program'    
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2024 Contributors to Smart Data Models Program'    
   x-license-url: https://github.com/smart-data-models/dataModel.HumanResources/blob/master/CurriculumVitae/LICENSE.md    
   x-model-schema: https://smart-data-models.github.io/dataModel.HumanResources/CurriculumVitae/schema.json    
   x-model-tags: Manfred    
-  x-version: 0.0.1    
+  x-version: 0.0.2    
 ```  
 </details>    
 <!-- /60-ModelYaml -->  
