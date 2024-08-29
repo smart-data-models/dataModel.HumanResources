@@ -8,7 +8,7 @@
 <!-- /15-License -->  
 <!-- 20-Description -->  
 グローバルな記述**オープンな職務経歴書フォーマット**  
-バージョン: 0.0.1  
+バージョン: 0.0.2  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
@@ -39,7 +39,7 @@
 - `currentSalary[object]`: 報復の記述のあるオブジェクト  	- `amount[integer]`: 給与額    
 	- `currency[string]`: ISO 4217による通貨記号    
 	- `relevantPerks`:     
-- `dataProvider[string]`: ハーモナイズされたデータ・エンティティの提供者を識別する一連の文字。  - `dateCreated[date-time]`: エンティティの作成タイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられます。  - `dateModified[date-time]`: エンティティの最終変更のタイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられる。  - `description[string]`: この商品の説明  - `experience[object]`: 職業経験に関する項目  	- `jobs[array]`: あなたが給与を得るために働いている、または働いたことのある企業、公的機関、NGO、その他の組織のリスト    
+- `dataProvider[string]`: ハーモナイズされたデータ・エンティティの提供者を識別する一連の文字。  - `dateCreated[date-time]`: エンティティの作成タイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられます。  - `dateModified[date-time]`: エンティティの最終変更のタイムスタンプ。これは通常、ストレージプラットフォームによって割り当てられる。  - `description[string]`: このアイテムの説明  - `experience[object]`: 職業経験に関する項目  	- `jobs[array]`: あなたが給与を得るために働いている、または働いたことのある企業、公的機関、NGO、その他の組織のリスト    
 	- `projects`:     
 	- `publicArtifacts`:     
 - `id[*]`: エンティティの一意識別子  - `interestingFacts[array]`: IDE、好きな本、サッカーチーム...。  - `knowledge`:   	- `languages`:     
@@ -3418,11 +3418,11 @@ CurriculumVitae:
     - type    
   type: object    
   x-derived-from: https://github.com/getmanfred/mac/blob/master/schema/schema.json    
-  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2023 Contributors to Smart Data Models Program'    
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2024 Contributors to Smart Data Models Program'    
   x-license-url: https://github.com/smart-data-models/dataModel.HumanResources/blob/master/CurriculumVitae/LICENSE.md    
   x-model-schema: https://smart-data-models.github.io/dataModel.HumanResources/CurriculumVitae/schema.json    
   x-model-tags: Manfred    
-  x-version: 0.0.1    
+  x-version: 0.0.2    
 ```  
 </details>    
 <!-- /60-ModelYaml -->  
