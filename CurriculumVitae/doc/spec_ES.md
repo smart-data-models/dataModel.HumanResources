@@ -8,7 +8,7 @@
 <!-- /15-License -->  
 <!-- 20-Description -->  
 Descripción global: **Un formato de Curriculum vitae abierto**  
-versión: 0.0.1  
+versión: 0.0.2  
 <!-- /20-Description -->  
 <!-- 30-PropertiesList -->  
 
@@ -3418,11 +3418,11 @@ CurriculumVitae:
     - type    
   type: object    
   x-derived-from: https://github.com/getmanfred/mac/blob/master/schema/schema.json    
-  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2023 Contributors to Smart Data Models Program'    
+  x-disclaimer: 'Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2024 Contributors to Smart Data Models Program'    
   x-license-url: https://github.com/smart-data-models/dataModel.HumanResources/blob/master/CurriculumVitae/LICENSE.md    
   x-model-schema: https://smart-data-models.github.io/dataModel.HumanResources/CurriculumVitae/schema.json    
   x-model-tags: Manfred    
-  x-version: 0.0.1    
+  x-version: 0.0.2    
 ```  
 </details>    
 <!-- /60-ModelYaml -->  
