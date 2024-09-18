@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.2",
   "$id": "https://smart-data-models.github.io/dataModel.HumanResources/CurriculumVitae/schema.json",
   "title": "Smart Data Models - Manfred Awesomic Curriculum vitae adapted to Smart Data Models",
