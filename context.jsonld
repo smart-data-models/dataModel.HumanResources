@@ -16,7 +16,7 @@
         "avatar": "https://smartdatamodels.org/dataModel.HumanResources/avatar",
         "bbox": {
             "@container": "@list",
-            "@id": "geojson:bbox"
+            "@id": "https://purl.org/geojson/vocab#bbox"
         },
         "birthday": "https://smartdatamodels.org/dataModel.HumanResources/birthday",
         "careerPreferences": "https://smartdatamodels.org/dataModel.HumanResources/careerPreferences",
@@ -29,12 +29,12 @@
         "contractTypes": "https://smartdatamodels.org/dataModel.HumanResources/contractTypes",
         "coordinates": {
             "@container": "@list",
-            "@id": "geojson:coordinates"
+            "@id": "https://purl.org/geojson/vocab#coordinates"
         },
         "countryCode": "https://smartdatamodels.org/dataModel.HumanResources/countryCode",
         "currency": "https://smartdatamodels.org/dataModel.HumanResources/currency",
         "currentSalary": "https://smartdatamodels.org/dataModel.HumanResources/currentSalary",
-        "data": "ngsi-ld:data",
+        "data": "https://uri.etsi.org/ngsi-ld/data",
         "dataProvider": "https://smartdatamodels.org/dataProvider",
         "dateCreated": "https://smartdatamodels.org/dateCreated",
         "dateModified": "https://smartdatamodels.org/dateModified",
@@ -63,7 +63,7 @@
         "lastUpdate": "https://smartdatamodels.org/dataModel.HumanResources/lastUpdate",
         "level": "https://smartdatamodels.org/dataModel.HumanResources/level",
         "link": "https://smartdatamodels.org/dataModel.HumanResources/link",
-        "location": "ngsi-ld:location",
+        "location": "https://uri.etsi.org/ngsi-ld/location",
         "mediaType": "https://smartdatamodels.org/dataModel.HumanResources/mediaType",
         "mustHave": "https://smartdatamodels.org/dataModel.HumanResources/mustHave",
         "name": "https://smartdatamodels.org/name",
@@ -104,7 +104,7 @@
         "situation": "https://smartdatamodels.org/dataModel.HumanResources/situation",
         "source": "https://smartdatamodels.org/source",
         "startDate": "https://smartdatamodels.org/startDate",
-        "status": "ngsi-ld:status",
+        "status": "https://uri.etsi.org/ngsi-ld/status",
         "streetAddress": "https://smartdatamodels.org/streetAddress",
         "streetNr": "https://smartdatamodels.org/streetNr",
         "surnames": "https://smartdatamodels.org/dataModel.HumanResources/surnames",
